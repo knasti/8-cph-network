@@ -109,7 +109,7 @@ with CursorFromConnectionFromPool() as cursor:
                     FROM (" + union_tables + ")t")
 # Creating source, target for network topology as well as a primary key for the table
 with CursorFromConnectionFromPool() as cursor:
-    cursor.execute("ALTER TABLE ways_merged ADD COLUMN pk BIGSERIAL PRIMARY KEY \
+    cursor.execute("ALTER TABLE merged_ways ADD COLUMN pk BIGSERIAL PRIMARY KEY; \
                     ALTER TABLE merged_ways ADD COLUMN source integer; \
                     ALTER TABLE merged_ways ADD COLUMN target integer;")
 

@@ -12,15 +12,153 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/network$example.coverage" NAME="example Coverage Results" MODIFIED="1493362352040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/network$main.coverage" NAME="main Coverage Results" MODIFIED="1493477547141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/network$import_to_db.coverage" NAME="import_to_db Coverage Results" MODIFIED="1493758301193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/network$train.coverage" NAME="train Coverage Results" MODIFIED="1493108140298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="8-cph-network" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="database.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="import_to_db.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/import_to_db.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="386">
+              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <marker date="1493758301168" expanded="true" signature="2301:2322" ph="DROP TABLE I... " />
+                <marker date="1493758301168" expanded="true" signature="2301:2324" ph="DROP TABLE I... " />
+                <marker date="1493758301168" expanded="true" signature="2374:2713" ph="CREATE TABLE... missing_value" />
+                <marker date="1493758301168" expanded="true" signature="3344:3394" ph="INSERT INTO train_line_a_ways... " />
+                <marker date="1493758301168" expanded="true" signature="3344:3433" ph="INSERT INTO train_line_a_ways... " />
+                <marker date="1493758301168" expanded="true" signature="3344:3475" ph="INSERT INTO train_line_a_ways... " />
+                <marker date="1493758301168" expanded="true" signature="3699:3725" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3699:3726" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3699:3731" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3759:3766" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3759:3773" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3759:3785" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3759:3787" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3759:3789" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3759:3791" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3759:3793" ph="UPDATE missi... " />
+                <marker date="1493758301168" expanded="true" signature="3976:3990" ph="SELECT * FRO... missing_value" />
+                <marker date="1493758301168" expanded="true" signature="3976:3992" ph="SELECT * FRO... " />
+                <marker date="1493758301168" expanded="true" signature="4256:4277" ph="DROP TABLE I... " />
+                <marker date="1493758301168" expanded="true" signature="4256:4288" ph="DROP TABLE I... " />
+                <marker date="1493758301168" expanded="true" signature="4311:4365" ph="SELECT * INT... " />
+                <marker date="1493758301168" expanded="true" signature="4311:4387" ph="SELECT * INT... missing_value" />
+                <marker date="1493758301168" expanded="true" signature="4311:4388" ph="SELECT * INT... " />
+                <marker date="1493758301168" expanded="true" signature="4311:4886" ph="SELECT * INT... missing_value" />
+                <marker date="1493758301168" expanded="true" signature="4389:4886" ph="SELECT * INT... *" />
+                <marker date="1493758301168" expanded="true" signature="4543:4602" ph="ALTER TABLE ways_merged... " />
+                <marker date="1493758301168" expanded="true" signature="4604:4674" ph="ALTER TABLE merged_ways... " />
+                <marker date="1493758301168" expanded="true" signature="4625:4674" ph="ALTER TABLE train_lines... " />
+                <marker date="1493758301168" expanded="true" signature="4698:4747" ph="ALTER TABLE merged_ways... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+                <element signature="e#1222#2601#0" expanded="false" />
+                <element signature="e#2703#3748#0" expanded="false" />
+                <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
+                <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
+                <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
+                <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
+                <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
+                <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="formulas.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/formulas.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bus.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bus.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+              <folding>
+                <marker date="1492960102071" expanded="true" signature="301:385" ph="INSERT INTO users... " />
+                <marker date="1492960102071" expanded="true" signature="634:648" ph="SELECT * FRO... users" />
+                <marker date="1492960102071" expanded="true" signature="634:650" ph="SELECT * FRO... users" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="metro.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metro.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -37,7 +175,14 @@
       <list>
         <option value="$PROJECT_DIR$/database.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/metro.py" />
+        <option value="$PROJECT_DIR$/pedestrian.py" />
+        <option value="$PROJECT_DIR$/bus.py" />
         <option value="$PROJECT_DIR$/example.py" />
+        <option value="$PROJECT_DIR$/formulas.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/import_to_db.py" />
       </list>
     </option>
   </component>
@@ -48,9 +193,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1924" />
+    <option name="x" value="-3" />
+    <option name="width" value="1932" />
     <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -78,7 +222,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -99,16 +242,90 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OGBetsToolkit/ogb-scraper" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.import_to_db">
+    <configuration default="false" name="example" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="8-cph-network" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Bruger\Documents\GitHub\8-cph-network\network\main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="8-cph-network" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="8-cph-network" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="import_to_db" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="8-cph-network" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/import_to_db.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -317,6 +534,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Python.example" />
+      <item index="1" class="java.lang.String" itemvalue="Python.train" />
+      <item index="2" class="java.lang.String" itemvalue="Python.main" />
+      <item index="3" class="java.lang.String" itemvalue="Python.import_to_db" />
+    </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.import_to_db" />
+        <item index="1" class="java.lang.String" itemvalue="Python.main" />
+        <item index="2" class="java.lang.String" itemvalue="Python.example" />
+        <item index="3" class="java.lang.String" itemvalue="Python.train" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -335,27 +566,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
-    <editor active="false" />
+    <frame x="-3" y="0" width="1932" height="1048" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25378788" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.094827585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33295584" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -370,10 +601,415 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="40" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/import_to_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493758301168" expanded="true" signature="2301:2322" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="2301:2324" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="2374:2713" ph="CREATE TABLE... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="3344:3394" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493758301168" expanded="true" signature="3344:3433" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493758301168" expanded="true" signature="3344:3475" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493758301168" expanded="true" signature="3699:3725" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3699:3726" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3699:3731" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3766" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3773" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3785" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3787" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3789" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3791" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3793" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3976:3990" ph="SELECT * FRO... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="3976:3992" ph="SELECT * FRO... " />
+            <marker date="1493758301168" expanded="true" signature="4256:4277" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="4256:4288" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="4311:4365" ph="SELECT * INT... " />
+            <marker date="1493758301168" expanded="true" signature="4311:4387" ph="SELECT * INT... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="4311:4388" ph="SELECT * INT... " />
+            <marker date="1493758301168" expanded="true" signature="4311:4886" ph="SELECT * INT... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="4389:4886" ph="SELECT * INT... *" />
+            <marker date="1493758301168" expanded="true" signature="4543:4602" ph="ALTER TABLE ways_merged... " />
+            <marker date="1493758301168" expanded="true" signature="4604:4674" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493758301168" expanded="true" signature="4625:4674" ph="ALTER TABLE train_lines... " />
+            <marker date="1493758301168" expanded="true" signature="4698:4747" ph="ALTER TABLE merged_ways... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <element signature="e#1222#2601#0" expanded="false" />
+            <element signature="e#2703#3748#0" expanded="false" />
+            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
+            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/formulas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <marker date="1492960102071" expanded="true" signature="301:385" ph="INSERT INTO users... " />
+            <marker date="1492960102071" expanded="true" signature="634:648" ph="SELECT * FRO... users" />
+            <marker date="1492960102071" expanded="true" signature="634:650" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/import_to_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493758301168" expanded="true" signature="2301:2322" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="2301:2324" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="2374:2713" ph="CREATE TABLE... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="3344:3394" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493758301168" expanded="true" signature="3344:3433" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493758301168" expanded="true" signature="3344:3475" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493758301168" expanded="true" signature="3699:3725" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3699:3726" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3699:3731" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3766" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3773" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3785" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3787" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3789" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3791" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3793" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3976:3990" ph="SELECT * FRO... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="3976:3992" ph="SELECT * FRO... " />
+            <marker date="1493758301168" expanded="true" signature="4256:4277" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="4256:4288" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="4311:4365" ph="SELECT * INT... " />
+            <marker date="1493758301168" expanded="true" signature="4311:4387" ph="SELECT * INT... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="4311:4388" ph="SELECT * INT... " />
+            <marker date="1493758301168" expanded="true" signature="4311:4886" ph="SELECT * INT... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="4389:4886" ph="SELECT * INT... *" />
+            <marker date="1493758301168" expanded="true" signature="4543:4602" ph="ALTER TABLE ways_merged... " />
+            <marker date="1493758301168" expanded="true" signature="4604:4674" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493758301168" expanded="true" signature="4625:4674" ph="ALTER TABLE train_lines... " />
+            <marker date="1493758301168" expanded="true" signature="4698:4747" ph="ALTER TABLE merged_ways... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <element signature="e#1222#2601#0" expanded="false" />
+            <element signature="e#2703#3748#0" expanded="false" />
+            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
+            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/formulas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <marker date="1492960102071" expanded="true" signature="301:385" ph="INSERT INTO users... " />
+            <marker date="1492960102071" expanded="true" signature="634:648" ph="SELECT * FRO... users" />
+            <marker date="1492960102071" expanded="true" signature="634:650" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <element signature="e#1222#2601#0" expanded="false" />
+            <element signature="e#2703#3748#0" expanded="false" />
+            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
+            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/formulas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <marker date="1492960102071" expanded="true" signature="301:385" ph="INSERT INTO users... " />
+            <marker date="1492960102071" expanded="true" signature="634:648" ph="SELECT * FRO... users" />
+            <marker date="1492960102071" expanded="true" signature="634:650" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <element signature="e#1222#2601#0" expanded="false" />
+            <element signature="e#2703#3748#0" expanded="false" />
+            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
+            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <marker date="1492960102071" expanded="true" signature="301:385" ph="INSERT INTO users... " />
+            <marker date="1492960102071" expanded="true" signature="634:648" ph="SELECT * FRO... users" />
+            <marker date="1492960102071" expanded="true" signature="634:650" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pedestrian.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <marker date="1492960102071" expanded="true" signature="301:385" ph="INSERT INTO users... " />
+            <marker date="1492960102071" expanded="true" signature="634:648" ph="SELECT * FRO... users" />
+            <marker date="1492960102071" expanded="true" signature="634:650" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <element signature="e#1222#2601#0" expanded="false" />
+            <element signature="e#2703#3748#0" expanded="false" />
+            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
+            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pedestrian.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -382,14 +1018,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <marker date="1490261488520" expanded="true" signature="507:591" ph="INSERT INTO users... " />
-            <marker date="1490261488520" expanded="true" signature="844:884" ph="SELECT * FRO... users" />
           </folding>
         </state>
       </provider>
@@ -398,35 +1032,193 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pedestrian.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/452201bd-f058-4865-ad5c-5465b40f09f6/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2016.2/system/python_stubs/-1351273794/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6883">
+          <caret line="765" column="8" selection-start-line="765" selection-start-column="8" selection-end-line="765" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+        <state relative-caret-position="209">
+          <caret line="310" column="0" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/75fa9418/452201bd-f058-4865-ad5c-5465b40f09f6/public_transport_2.public.metro_lines_2">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/75fa9418/452201bd-f058-4865-ad5c-5465b40f09f6/public_transport_2.public.train_lines_2">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/75fa9418/452201bd-f058-4865-ad5c-5465b40f09f6/public_transport_2.public.train_lines_2_vertices_pgr">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/75fa9418/452201bd-f058-4865-ad5c-5465b40f09f6/public_transport_2.public.metro_lines">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <marker date="1492960102071" expanded="true" signature="301:385" ph="INSERT INTO users... " />
+            <marker date="1492960102071" expanded="true" signature="634:648" ph="SELECT * FRO... users" />
+            <marker date="1492960102071" expanded="true" signature="634:650" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/formulas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="29" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <marker date="1490261488520" expanded="true" signature="507:591" ph="INSERT INTO users... " />
-            <marker date="1490261488520" expanded="true" signature="844:884" ph="SELECT * FRO... users" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="286">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <element signature="e#1222#2601#0" expanded="false" />
+            <element signature="e#2703#3748#0" expanded="false" />
+            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
+            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/import_to_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493758301168" expanded="true" signature="2301:2322" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="2301:2324" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="2374:2713" ph="CREATE TABLE... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="3344:3394" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493758301168" expanded="true" signature="3344:3433" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493758301168" expanded="true" signature="3344:3475" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493758301168" expanded="true" signature="3699:3725" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3699:3726" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3699:3731" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3766" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3773" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3785" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3787" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3789" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3791" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3759:3793" ph="UPDATE missi... " />
+            <marker date="1493758301168" expanded="true" signature="3976:3990" ph="SELECT * FRO... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="3976:3992" ph="SELECT * FRO... " />
+            <marker date="1493758301168" expanded="true" signature="4256:4277" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="4256:4288" ph="DROP TABLE I... " />
+            <marker date="1493758301168" expanded="true" signature="4311:4365" ph="SELECT * INT... " />
+            <marker date="1493758301168" expanded="true" signature="4311:4387" ph="SELECT * INT... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="4311:4388" ph="SELECT * INT... " />
+            <marker date="1493758301168" expanded="true" signature="4311:4886" ph="SELECT * INT... missing_value" />
+            <marker date="1493758301168" expanded="true" signature="4389:4886" ph="SELECT * INT... *" />
+            <marker date="1493758301168" expanded="true" signature="4543:4602" ph="ALTER TABLE ways_merged... " />
+            <marker date="1493758301168" expanded="true" signature="4604:4674" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493758301168" expanded="true" signature="4625:4674" ph="ALTER TABLE train_lines... " />
+            <marker date="1493758301168" expanded="true" signature="4698:4747" ph="ALTER TABLE merged_ways... " />
+          </folding>
         </state>
       </provider>
     </entry>

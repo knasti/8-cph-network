@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - public_transport_2@localhost" uuid="452201bd-f058-4865-ad5c-5465b40f09f6">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <introspection-scope>public_transport_2:pg_catalog,postgres,public</introspection-scope>
+      <resolve-scope>public_transport_2:postgres,public</resolve-scope>
+    </data-source>
+  </component>
+</project>

@@ -14,6 +14,8 @@ print(pedestrian.load_length_from_db())
 
 print(pedestrian.calculate_moving_costs())
 
+pedestrian.update_moving_costs()
+
 '''
 Database.initialise(user='postgres', password='postgres', host='localhost', database='public_transport_2')
 

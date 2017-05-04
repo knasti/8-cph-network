@@ -109,4 +109,3 @@ class Train:
         with CursorFromConnectionFromPool() as cursor:
             for i in range(len(conn_ways)):
                 cursor.execute('UPDATE merged_ways SET costs = %s WHERE pk = %s', (avg_waiting_time, conn_ways[i]))
-

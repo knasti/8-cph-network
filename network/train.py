@@ -8,26 +8,34 @@ class Train:
         self.deceleration = deceleration
         self.velocity = velocity
         self.spatial_length = []
+        self.id = []
 
     def __repr__(self):
         return "<Train {}>".format(self.value)
 
     def update_moving_costs(self):
-        # Connecting to database
-        with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("UPDATE merged_ways SET costs = %s \
-                            WHERE transport = 'train';", [self.value])
+        # Storing the moving costs
+        costs = self.calculate_moving_costs()
+
+        # Running through all of the train entries
+        for i in range(len(self.spatial_length)):
+            # Connecting to database
+            with CursorFromConnectionFromPool() as cursor:
+                cursor.execute("UPDATE merged_ways SET costs = {} \
+                                WHERE pk = {};".format(costs[i], self.id[i]))
 
     def load_length_from_db(self):
         # Connecting to database
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT spatial_length FROM merged_ways WHERE connector = 0 AND transport = 'train'")
+            cursor.execute("SELECT spatial_length, pk FROM merged_ways WHERE connector = 0 AND transport = 'train'")
             train_data = cursor.fetchall() # Stores the result of the query in the train_data variable
             self.spatial_length = [] # Makes sure the list is empty
+            self.id = [] # Makes sure the list is empty
             if train_data:  # None is equivalent to false in boolean expressions
                 for i in range(len(train_data)): # Iterating through all of the train data
                     self.spatial_length.append(train_data[i][0]) # Removing the tuples that comes along with the DB queries
-        return self.spatial_length
+                    self.id.append(train_data[i][1])  # Removing the tuples that comes along with the DB queries
+        return None
 
     def calculate_moving_costs(self):
         # Loading in the spatial lengths

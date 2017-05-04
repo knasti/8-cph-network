@@ -51,7 +51,7 @@ for subdir, dirs, files in os.walk(rootdir):
 
             # Storing line number, it will always be in the same location towards the end XX_line_LINENUMBER_ways.shp
             # NEEDS POLISHING, REGEX OR SLICING
-            if subdir == 'pedestrian':
+            if subdir.endswith('pedestrian'):
                 line_number.append('pedestrian')
             else:
                 line_number.append(f[-10])
@@ -62,7 +62,7 @@ for k in range(len(src_file)):
     with CursorFromConnectionFromPool() as cursor:
         cursor.execute("DROP TABLE IF EXISTS {}".format(table_names[k]))
         cursor.execute("CREATE TABLE {} ( \
-                            name varchar(80), \
+                            name VARCHAR(80), \
                             geom GEOMETRY, \
                             time_const FLOAT8, \
                             transport VARCHAR, \
@@ -110,8 +110,18 @@ with CursorFromConnectionFromPool() as cursor:
 # Creating source, target for network topology as well as a primary key for the table
 with CursorFromConnectionFromPool() as cursor:
     cursor.execute("ALTER TABLE merged_ways ADD COLUMN pk BIGSERIAL PRIMARY KEY; \
-                    ALTER TABLE merged_ways ADD COLUMN source integer; \
-                    ALTER TABLE merged_ways ADD COLUMN target integer;")
+                    ALTER TABLE merged_ways ADD COLUMN source INTEGER; \
+                    ALTER TABLE merged_ways ADD COLUMN target INTEGER; \
+                    ALTER TABLE merged_ways ADD COLUMN spatial_length FLOAT8; \
+                    ALTER TABLE merged_ways ADD COLUMN time_calc INTEGER; \
+                    ALTER TABLE merged_ways ADD COLUMN costs INTEGER;")
 
+# Calculate lengths of the ways in the network
 with CursorFromConnectionFromPool() as cursor:
-    cursor.execute("SELECT pgr_createtopology('merged_ways', 0.00001, 'geom', 'pk');")
+    cursor.execute("UPDATE merged_ways AS mw_1 SET spatial_length = ST_Length(ST_Transform(mw_2.geom, 26918)) \
+                    FROM merged_ways AS mw_2 \
+                    WHERE mw_1.pk = mw_2.pk;")
+
+# Creating the network topology with pgrouting
+with CursorFromConnectionFromPool() as cursor:
+    cursor.execute("SELECT pgr_createtopology('merged_ways', 0.00002, 'geom', 'pk');")

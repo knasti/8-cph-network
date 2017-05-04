@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="860b7658-f2c8-4348-b12d-f078b15ef136" name="Default" comment="" />
+    <list default="true" id="860b7658-f2c8-4348-b12d-f078b15ef136" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pedestrian.py" afterPath="$PROJECT_DIR$/pedestrian.py" />
+    </list>
     <ignored path="8-cph-network.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -14,8 +16,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/network$example.coverage" NAME="example Coverage Results" MODIFIED="1493362352040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/network$main.coverage" NAME="main Coverage Results" MODIFIED="1493477547141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/network$import_to_db.coverage" NAME="import_to_db Coverage Results" MODIFIED="1493758720824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/network$main.coverage" NAME="main Coverage Results" MODIFIED="1493809284602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/network$import_to_db.coverage" NAME="import_to_db Coverage Results" MODIFIED="1493810672875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/network$train.coverage" NAME="train Coverage Results" MODIFIED="1493108140298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -44,8 +46,8 @@
       <file leaf-file-name="database.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+            <state relative-caret-position="858">
+              <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -54,8 +56,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="29" />
+            <state relative-caret-position="72">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -63,42 +65,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="import_to_db.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="import_to_db.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/import_to_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="116" column="85" selection-start-line="116" selection-start-column="85" selection-end-line="116" selection-end-column="85" />
+            <state relative-caret-position="2706">
+              <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1493758720809" expanded="true" signature="2301:2322" ph="DROP TABLE I... " />
-                <marker date="1493758720809" expanded="true" signature="2301:2324" ph="DROP TABLE I... " />
-                <marker date="1493758720809" expanded="true" signature="2374:2713" ph="CREATE TABLE... missing_value" />
-                <marker date="1493758720809" expanded="true" signature="3344:3394" ph="INSERT INTO train_line_a_ways... " />
-                <marker date="1493758720809" expanded="true" signature="3344:3433" ph="INSERT INTO train_line_a_ways... " />
-                <marker date="1493758720809" expanded="true" signature="3344:3475" ph="INSERT INTO train_line_a_ways... " />
-                <marker date="1493758720809" expanded="true" signature="3699:3725" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3699:3726" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3699:3731" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3759:3766" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3759:3773" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3759:3785" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3759:3787" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3759:3789" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3759:3791" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3759:3793" ph="UPDATE missi... " />
-                <marker date="1493758720809" expanded="true" signature="3976:3990" ph="SELECT * FRO... missing_value" />
-                <marker date="1493758720809" expanded="true" signature="3976:3992" ph="SELECT * FRO... " />
-                <marker date="1493758720809" expanded="true" signature="4256:4277" ph="DROP TABLE I... " />
-                <marker date="1493758720809" expanded="true" signature="4256:4288" ph="DROP TABLE I... " />
-                <marker date="1493758720809" expanded="true" signature="4311:4365" ph="SELECT * INT... " />
-                <marker date="1493758720809" expanded="true" signature="4311:4387" ph="SELECT * INT... missing_value" />
-                <marker date="1493758720809" expanded="true" signature="4311:4388" ph="SELECT * INT... " />
-                <marker date="1493758720809" expanded="true" signature="4311:4887" ph="SELECT * INT... missing_value" />
-                <marker date="1493758720809" expanded="true" signature="4389:4887" ph="SELECT * INT... *" />
-                <marker date="1493758720809" expanded="true" signature="4543:4602" ph="ALTER TABLE ways_merged... " />
-                <marker date="1493758720809" expanded="true" signature="4605:4675" ph="ALTER TABLE merged_ways... " />
-                <marker date="1493758720809" expanded="true" signature="4626:4675" ph="ALTER TABLE train_lines... " />
-                <marker date="1493758720809" expanded="true" signature="4699:4748" ph="ALTER TABLE merged_ways... " />
+                <marker date="1493810672855" expanded="true" signature="2308:2329" ph="DROP TABLE I... " />
+                <marker date="1493810672855" expanded="true" signature="2308:2331" ph="DROP TABLE I... " />
+                <marker date="1493810672855" expanded="true" signature="2381:2720" ph="CREATE TABLE... missing_value" />
+                <marker date="1493810672855" expanded="true" signature="3351:3401" ph="INSERT INTO train_line_a_ways... " />
+                <marker date="1493810672855" expanded="true" signature="3351:3440" ph="INSERT INTO train_line_a_ways... " />
+                <marker date="1493810672855" expanded="true" signature="3351:3482" ph="INSERT INTO train_line_a_ways... " />
+                <marker date="1493810672855" expanded="true" signature="3706:3732" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3706:3733" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3706:3738" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3766:3773" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3766:3780" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3766:3792" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3766:3794" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3766:3796" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3766:3798" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3766:3800" ph="UPDATE missi... " />
+                <marker date="1493810672855" expanded="true" signature="3983:3997" ph="SELECT * FRO... missing_value" />
+                <marker date="1493810672855" expanded="true" signature="3983:3999" ph="SELECT * FRO... " />
+                <marker date="1493810672855" expanded="true" signature="4263:4284" ph="DROP TABLE I... " />
+                <marker date="1493810672855" expanded="true" signature="4263:4295" ph="DROP TABLE I... " />
+                <marker date="1493810672855" expanded="true" signature="4318:4372" ph="SELECT * INT... " />
+                <marker date="1493810672855" expanded="true" signature="4318:4394" ph="SELECT * INT... missing_value" />
+                <marker date="1493810672855" expanded="true" signature="4318:4395" ph="SELECT * INT... " />
+                <marker date="1493810672855" expanded="true" signature="4318:5470" ph="SELECT * INT... missing_value" />
+                <marker date="1493810672855" expanded="true" signature="4396:5470" ph="SELECT * INT... *" />
+                <marker date="1493810672855" expanded="true" signature="4550:4609" ph="ALTER TABLE ways_merged... " />
+                <marker date="1493810672855" expanded="true" signature="4612:4675" ph="ALTER TABLE merged_ways... " />
+                <marker date="1493810672855" expanded="true" signature="4633:4675" ph="ALTER TABLE train_lines... " />
+                <marker date="1493810672855" expanded="true" signature="4706:4748" ph="ALTER TABLE merged_ways... " />
+                <marker date="1493810672855" expanded="true" signature="4706:4755" ph="ALTER TABLE merged_ways... " />
+                <marker date="1493810672855" expanded="true" signature="4779:4829" ph="ALTER TABLE merged_ways... " />
+                <marker date="1493810672855" expanded="true" signature="4779:4835" ph="ALTER TABLE merged_ways... " />
+                <marker date="1493810672855" expanded="true" signature="4859:4911" ph="ALTER TABLE merged_ways... " />
+                <marker date="1493810672855" expanded="true" signature="4935:4983" ph="ALTER TABLE merged_ways... " />
+                <marker date="1493810672855" expanded="true" signature="5102:5191" ph="UPDATE merge... " />
+                <marker date="1493810672855" expanded="true" signature="5102:5193" ph="UPDATE merge... " />
+                <marker date="1493810672855" expanded="true" signature="5102:5284" ph="UPDATE merge... " />
+                <marker date="1493810672855" expanded="true" signature="5102:5287" ph="UPDATE merge... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pedestrian.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pedestrian.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+              <folding>
+                <marker date="1493880747078" expanded="true" signature="399:468" ph="SELECT spati... merged_ways" />
               </folding>
             </state>
           </provider>
@@ -107,18 +130,22 @@
       <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="62" />
+            <state relative-caret-position="154">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="62" selection-end-column="23" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
-                <element signature="e#1222#2601#0" expanded="false" />
-                <element signature="e#2703#3748#0" expanded="false" />
-                <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
-                <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
-                <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
-                <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
-                <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
-                <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+                <marker date="1493808568409" expanded="true" signature="515:548" ph="UPDATE train... " />
+                <marker date="1493808568409" expanded="true" signature="515:550" ph="UPDATE merge... " />
+                <marker date="1493808568409" expanded="true" signature="515:596" ph="UPDATE merge... " />
+                <marker date="1493808568409" expanded="true" signature="515:604" ph="UPDATE merge... " />
+                <marker date="1493808568409" expanded="true" signature="515:621" ph="UPDATE merge... " />
+                <marker date="1493808568409" expanded="true" signature="774:801" ph="SELECT * FRO... train_lines_2" />
+                <marker date="1493808568409" expanded="true" signature="774:848" ph="SELECT spati... merged_ways" />
+                <marker date="1493808568409" expanded="true" signature="774:856" ph="SELECT spati... merged_ways" />
+                <marker date="1493808568409" expanded="true" signature="4219:4281" ph="SELECT * FRO... ways_merged_1" />
+                <marker date="1493808568409" expanded="true" signature="4219:4289" ph="SELECT lengt... train_lines_2" />
+                <marker date="1493808568409" expanded="true" signature="4219:4310" ph="SELECT pk FR... ways_merged_1" />
+                <marker date="1493808568409" expanded="true" signature="5021:5068" ph="UPDATE ways_... " />
               </folding>
             </state>
           </provider>
@@ -176,13 +203,13 @@
         <option value="$PROJECT_DIR$/database.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/metro.py" />
-        <option value="$PROJECT_DIR$/pedestrian.py" />
         <option value="$PROJECT_DIR$/bus.py" />
         <option value="$PROJECT_DIR$/example.py" />
         <option value="$PROJECT_DIR$/formulas.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/import_to_db.py" />
+        <option value="$PROJECT_DIR$/pedestrian.py" />
       </list>
     </option>
   </component>
@@ -193,8 +220,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
-    <option name="width" value="1932" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
     <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -566,10 +594,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="1932" height="1048" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.094827585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09452202" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -638,35 +666,44 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1493758720809" expanded="true" signature="2301:2322" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="2301:2324" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="2374:2713" ph="CREATE TABLE... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="3344:3394" ph="INSERT INTO train_line_a_ways... " />
-            <marker date="1493758720809" expanded="true" signature="3344:3433" ph="INSERT INTO train_line_a_ways... " />
-            <marker date="1493758720809" expanded="true" signature="3344:3475" ph="INSERT INTO train_line_a_ways... " />
-            <marker date="1493758720809" expanded="true" signature="3699:3725" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3699:3726" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3699:3731" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3766" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3773" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3785" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3787" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3789" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3791" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3793" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3976:3990" ph="SELECT * FRO... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="3976:3992" ph="SELECT * FRO... " />
-            <marker date="1493758720809" expanded="true" signature="4256:4277" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="4256:4288" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="4311:4365" ph="SELECT * INT... " />
-            <marker date="1493758720809" expanded="true" signature="4311:4387" ph="SELECT * INT... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="4311:4388" ph="SELECT * INT... " />
-            <marker date="1493758720809" expanded="true" signature="4311:4887" ph="SELECT * INT... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="4389:4887" ph="SELECT * INT... *" />
-            <marker date="1493758720809" expanded="true" signature="4543:4602" ph="ALTER TABLE ways_merged... " />
-            <marker date="1493758720809" expanded="true" signature="4605:4675" ph="ALTER TABLE merged_ways... " />
-            <marker date="1493758720809" expanded="true" signature="4626:4675" ph="ALTER TABLE train_lines... " />
-            <marker date="1493758720809" expanded="true" signature="4699:4748" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="2308:2329" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="2308:2331" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="2381:2720" ph="CREATE TABLE... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="3351:3401" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493810672855" expanded="true" signature="3351:3440" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493810672855" expanded="true" signature="3351:3482" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493810672855" expanded="true" signature="3706:3732" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3706:3733" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3706:3738" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3773" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3780" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3792" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3794" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3796" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3798" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3800" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3983:3997" ph="SELECT * FRO... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="3983:3999" ph="SELECT * FRO... " />
+            <marker date="1493810672855" expanded="true" signature="4263:4284" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="4263:4295" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="4318:4372" ph="SELECT * INT... " />
+            <marker date="1493810672855" expanded="true" signature="4318:4394" ph="SELECT * INT... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="4318:4395" ph="SELECT * INT... " />
+            <marker date="1493810672855" expanded="true" signature="4318:5470" ph="SELECT * INT... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="4396:5470" ph="SELECT * INT... *" />
+            <marker date="1493810672855" expanded="true" signature="4550:4609" ph="ALTER TABLE ways_merged... " />
+            <marker date="1493810672855" expanded="true" signature="4612:4675" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4633:4675" ph="ALTER TABLE train_lines... " />
+            <marker date="1493810672855" expanded="true" signature="4706:4748" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4706:4755" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4779:4829" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4779:4835" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4859:4911" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4935:4983" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5191" ph="UPDATE merge... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5193" ph="UPDATE merge... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5284" ph="UPDATE merge... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5287" ph="UPDATE merge... " />
           </folding>
         </state>
       </provider>
@@ -677,14 +714,18 @@
           <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#1222#2601#0" expanded="false" />
-            <element signature="e#2703#3748#0" expanded="false" />
-            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
-            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+            <marker date="1493808568409" expanded="true" signature="515:548" ph="UPDATE train... " />
+            <marker date="1493808568409" expanded="true" signature="515:550" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:596" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:604" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:621" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="774:801" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="774:848" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="774:856" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="4219:4281" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="4219:4289" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="4219:4310" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="5021:5068" ph="UPDATE ways_... " />
           </folding>
         </state>
       </provider>
@@ -741,35 +782,44 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1493758720809" expanded="true" signature="2301:2322" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="2301:2324" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="2374:2713" ph="CREATE TABLE... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="3344:3394" ph="INSERT INTO train_line_a_ways... " />
-            <marker date="1493758720809" expanded="true" signature="3344:3433" ph="INSERT INTO train_line_a_ways... " />
-            <marker date="1493758720809" expanded="true" signature="3344:3475" ph="INSERT INTO train_line_a_ways... " />
-            <marker date="1493758720809" expanded="true" signature="3699:3725" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3699:3726" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3699:3731" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3766" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3773" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3785" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3787" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3789" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3791" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3793" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3976:3990" ph="SELECT * FRO... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="3976:3992" ph="SELECT * FRO... " />
-            <marker date="1493758720809" expanded="true" signature="4256:4277" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="4256:4288" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="4311:4365" ph="SELECT * INT... " />
-            <marker date="1493758720809" expanded="true" signature="4311:4387" ph="SELECT * INT... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="4311:4388" ph="SELECT * INT... " />
-            <marker date="1493758720809" expanded="true" signature="4311:4887" ph="SELECT * INT... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="4389:4887" ph="SELECT * INT... *" />
-            <marker date="1493758720809" expanded="true" signature="4543:4602" ph="ALTER TABLE ways_merged... " />
-            <marker date="1493758720809" expanded="true" signature="4605:4675" ph="ALTER TABLE merged_ways... " />
-            <marker date="1493758720809" expanded="true" signature="4626:4675" ph="ALTER TABLE train_lines... " />
-            <marker date="1493758720809" expanded="true" signature="4699:4748" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="2308:2329" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="2308:2331" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="2381:2720" ph="CREATE TABLE... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="3351:3401" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493810672855" expanded="true" signature="3351:3440" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493810672855" expanded="true" signature="3351:3482" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493810672855" expanded="true" signature="3706:3732" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3706:3733" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3706:3738" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3773" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3780" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3792" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3794" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3796" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3798" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3800" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3983:3997" ph="SELECT * FRO... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="3983:3999" ph="SELECT * FRO... " />
+            <marker date="1493810672855" expanded="true" signature="4263:4284" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="4263:4295" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="4318:4372" ph="SELECT * INT... " />
+            <marker date="1493810672855" expanded="true" signature="4318:4394" ph="SELECT * INT... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="4318:4395" ph="SELECT * INT... " />
+            <marker date="1493810672855" expanded="true" signature="4318:5470" ph="SELECT * INT... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="4396:5470" ph="SELECT * INT... *" />
+            <marker date="1493810672855" expanded="true" signature="4550:4609" ph="ALTER TABLE ways_merged... " />
+            <marker date="1493810672855" expanded="true" signature="4612:4675" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4633:4675" ph="ALTER TABLE train_lines... " />
+            <marker date="1493810672855" expanded="true" signature="4706:4748" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4706:4755" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4779:4829" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4779:4835" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4859:4911" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4935:4983" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5191" ph="UPDATE merge... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5193" ph="UPDATE merge... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5284" ph="UPDATE merge... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5287" ph="UPDATE merge... " />
           </folding>
         </state>
       </provider>
@@ -780,14 +830,18 @@
           <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#1222#2601#0" expanded="false" />
-            <element signature="e#2703#3748#0" expanded="false" />
-            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
-            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+            <marker date="1493808568409" expanded="true" signature="515:548" ph="UPDATE train... " />
+            <marker date="1493808568409" expanded="true" signature="515:550" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:596" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:604" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:621" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="774:801" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="774:848" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="774:856" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="4219:4281" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="4219:4289" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="4219:4310" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="5021:5068" ph="UPDATE ways_... " />
           </folding>
         </state>
       </provider>
@@ -844,14 +898,18 @@
           <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#1222#2601#0" expanded="false" />
-            <element signature="e#2703#3748#0" expanded="false" />
-            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
-            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+            <marker date="1493808568409" expanded="true" signature="515:548" ph="UPDATE train... " />
+            <marker date="1493808568409" expanded="true" signature="515:550" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:596" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:604" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:621" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="774:801" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="774:848" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="774:856" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="4219:4281" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="4219:4289" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="4219:4310" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="5021:5068" ph="UPDATE ways_... " />
           </folding>
         </state>
       </provider>
@@ -908,14 +966,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#1222#2601#0" expanded="false" />
-            <element signature="e#2703#3748#0" expanded="false" />
-            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
-            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+            <marker date="1493808568409" expanded="true" signature="515:548" ph="UPDATE train... " />
+            <marker date="1493808568409" expanded="true" signature="515:550" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:596" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:604" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:621" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="774:801" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="774:848" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="774:856" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="4219:4281" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="4219:4289" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="4219:4310" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="5021:5068" ph="UPDATE ways_... " />
           </folding>
         </state>
       </provider>
@@ -983,14 +1045,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#1222#2601#0" expanded="false" />
-            <element signature="e#2703#3748#0" expanded="false" />
-            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
-            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+            <marker date="1493808568409" expanded="true" signature="515:548" ph="UPDATE train... " />
+            <marker date="1493808568409" expanded="true" signature="515:550" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:596" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:604" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:621" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="774:801" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="774:848" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="774:856" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="4219:4281" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="4219:4289" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="4219:4310" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="5021:5068" ph="UPDATE ways_... " />
           </folding>
         </state>
       </provider>
@@ -1039,13 +1105,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pedestrian.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1119,22 +1178,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bus.py">
+    <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding>
-            <marker date="1492960102071" expanded="true" signature="301:385" ph="INSERT INTO users... " />
-            <marker date="1492960102071" expanded="true" signature="634:648" ph="SELECT * FRO... users" />
-            <marker date="1492960102071" expanded="true" signature="634:650" ph="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/metro.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        <state relative-caret-position="858">
+          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1147,77 +1194,112 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/metro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <marker date="1492960102071" expanded="true" signature="301:385" ph="INSERT INTO users... " />
+            <marker date="1492960102071" expanded="true" signature="634:648" ph="SELECT * FRO... users" />
+            <marker date="1492960102071" expanded="true" signature="634:650" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="62" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <marker date="1493808568409" expanded="true" signature="515:548" ph="UPDATE train... " />
+            <marker date="1493808568409" expanded="true" signature="515:550" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:596" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:604" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="515:621" ph="UPDATE merge... " />
+            <marker date="1493808568409" expanded="true" signature="774:801" ph="SELECT * FRO... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="774:848" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="774:856" ph="SELECT spati... merged_ways" />
+            <marker date="1493808568409" expanded="true" signature="4219:4281" ph="SELECT * FRO... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="4219:4289" ph="SELECT lengt... train_lines_2" />
+            <marker date="1493808568409" expanded="true" signature="4219:4310" ph="SELECT pk FR... ways_merged_1" />
+            <marker date="1493808568409" expanded="true" signature="5021:5068" ph="UPDATE ways_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="29" />
+        <state relative-caret-position="72">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database.py">
+    <entry file="file://$PROJECT_DIR$/import_to_db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="62" />
+        <state relative-caret-position="2706">
+          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
           <folding>
-            <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#1222#2601#0" expanded="false" />
-            <element signature="e#2703#3748#0" expanded="false" />
-            <marker date="1493477547127" expanded="true" signature="396:431" ph="UPDATE train... " />
-            <marker date="1493477547127" expanded="true" signature="600:632" ph="SELECT * FRO... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4052" ph="SELECT * FRO... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="3988:4060" ph="SELECT lengt... train_lines_2" />
-            <marker date="1493477547127" expanded="true" signature="3988:4081" ph="SELECT pk FR... ways_merged_1" />
-            <marker date="1493477547127" expanded="true" signature="4792:4841" ph="UPDATE ways_... " />
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1493810672855" expanded="true" signature="2308:2329" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="2308:2331" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="2381:2720" ph="CREATE TABLE... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="3351:3401" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493810672855" expanded="true" signature="3351:3440" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493810672855" expanded="true" signature="3351:3482" ph="INSERT INTO train_line_a_ways... " />
+            <marker date="1493810672855" expanded="true" signature="3706:3732" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3706:3733" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3706:3738" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3773" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3780" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3792" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3794" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3796" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3798" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3766:3800" ph="UPDATE missi... " />
+            <marker date="1493810672855" expanded="true" signature="3983:3997" ph="SELECT * FRO... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="3983:3999" ph="SELECT * FRO... " />
+            <marker date="1493810672855" expanded="true" signature="4263:4284" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="4263:4295" ph="DROP TABLE I... " />
+            <marker date="1493810672855" expanded="true" signature="4318:4372" ph="SELECT * INT... " />
+            <marker date="1493810672855" expanded="true" signature="4318:4394" ph="SELECT * INT... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="4318:4395" ph="SELECT * INT... " />
+            <marker date="1493810672855" expanded="true" signature="4318:5470" ph="SELECT * INT... missing_value" />
+            <marker date="1493810672855" expanded="true" signature="4396:5470" ph="SELECT * INT... *" />
+            <marker date="1493810672855" expanded="true" signature="4550:4609" ph="ALTER TABLE ways_merged... " />
+            <marker date="1493810672855" expanded="true" signature="4612:4675" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4633:4675" ph="ALTER TABLE train_lines... " />
+            <marker date="1493810672855" expanded="true" signature="4706:4748" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4706:4755" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4779:4829" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4779:4835" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4859:4911" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="4935:4983" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5191" ph="UPDATE merge... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5193" ph="UPDATE merge... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5284" ph="UPDATE merge... " />
+            <marker date="1493810672855" expanded="true" signature="5102:5287" ph="UPDATE merge... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/import_to_db.py">
+    <entry file="file://$PROJECT_DIR$/pedestrian.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="116" column="85" selection-start-line="116" selection-start-column="85" selection-end-line="116" selection-end-column="85" />
+        <state relative-caret-position="506">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1493758720809" expanded="true" signature="2301:2322" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="2301:2324" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="2374:2713" ph="CREATE TABLE... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="3344:3394" ph="INSERT INTO train_line_a_ways... " />
-            <marker date="1493758720809" expanded="true" signature="3344:3433" ph="INSERT INTO train_line_a_ways... " />
-            <marker date="1493758720809" expanded="true" signature="3344:3475" ph="INSERT INTO train_line_a_ways... " />
-            <marker date="1493758720809" expanded="true" signature="3699:3725" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3699:3726" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3699:3731" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3766" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3773" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3785" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3787" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3789" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3791" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3759:3793" ph="UPDATE missi... " />
-            <marker date="1493758720809" expanded="true" signature="3976:3990" ph="SELECT * FRO... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="3976:3992" ph="SELECT * FRO... " />
-            <marker date="1493758720809" expanded="true" signature="4256:4277" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="4256:4288" ph="DROP TABLE I... " />
-            <marker date="1493758720809" expanded="true" signature="4311:4365" ph="SELECT * INT... " />
-            <marker date="1493758720809" expanded="true" signature="4311:4387" ph="SELECT * INT... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="4311:4388" ph="SELECT * INT... " />
-            <marker date="1493758720809" expanded="true" signature="4311:4887" ph="SELECT * INT... missing_value" />
-            <marker date="1493758720809" expanded="true" signature="4389:4887" ph="SELECT * INT... *" />
-            <marker date="1493758720809" expanded="true" signature="4543:4602" ph="ALTER TABLE ways_merged... " />
-            <marker date="1493758720809" expanded="true" signature="4605:4675" ph="ALTER TABLE merged_ways... " />
-            <marker date="1493758720809" expanded="true" signature="4626:4675" ph="ALTER TABLE train_lines... " />
-            <marker date="1493758720809" expanded="true" signature="4699:4748" ph="ALTER TABLE merged_ways... " />
+            <marker date="1493880747078" expanded="true" signature="399:468" ph="SELECT spati... merged_ways" />
           </folding>
         </state>
       </provider>

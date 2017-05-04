@@ -13,21 +13,11 @@ class Train:
     def __repr__(self):
         return "<Train {}>".format(self.value)
 
-    def update_moving_costs(self):
-        # Storing the moving costs
-        costs = self.calculate_moving_costs()
-
-        # Running through all of the train entries
-        for i in range(len(self.spatial_length)):
-            # Connecting to database
-            with CursorFromConnectionFromPool() as cursor:
-                cursor.execute("UPDATE merged_ways SET costs = {} \
-                                WHERE pk = {};".format(costs[i], self.id[i]))
-
     def load_length_from_db(self):
         # Connecting to database
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT spatial_length, pk FROM merged_ways WHERE connector = 0 AND transport = 'train'")
+            cursor.execute("SELECT spatial_length, pk FROM merged_ways \
+                            WHERE connector = 0 AND transport = 'train'")
             train_data = cursor.fetchall() # Stores the result of the query in the train_data variable
             self.spatial_length = [] # Makes sure the list is empty
             self.id = [] # Makes sure the list is empty
@@ -94,6 +84,50 @@ class Train:
                 # Returning the time it takes to get from start to destination
                 sum_time = acc_time + dec_time
                 return sum_time
+
+    def update_time_calc_costs(self):
+        # Storing the moving costs
+        costs = self.calculate_moving_costs()
+
+        # Running through all of the train entries
+        for i in range(len(self.spatial_length)):
+            # Connecting to database
+            with CursorFromConnectionFromPool() as cursor:
+                cursor.execute("UPDATE merged_ways SET time_calc = {} \
+                                WHERE pk = {};".format(costs[i], self.id[i]))
+
+    def update_moving_costs(self):
+        # Storing the calculated moving costs
+        time_calc = self.calculate_moving_costs()
+
+        # Stores all the time_const values and the ids belonging to them
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute("SELECT time_const, pk FROM merged_ways \
+                            WHERE connector = 0 AND transport = 'train'")
+            train_time_const_costs = cursor.fetchall()  # Stores the result of the query in the train_data variable
+            time_const = [] # Makes sure the list is empty
+            time_const_id = [] # Makes sure the list is empty
+            if train_time_const_costs:
+                for i in range(len(train_time_const_costs)): # Iterating through all of the train data
+                    time_const.append(train_time_const_costs[i][0]) # Removing the tuples that comes along with the DB queries
+                    time_const_id.append(train_time_const_costs[i][1]) # Removing the tuples that comes along with the DB queries
+
+        # Iterates through all non-connector train ways
+        for i in range(len(self.spatial_length)):
+            # Iterates through all non-connector train ways that have a time_const value
+            for k in range(len(time_const)):
+                # If the time const id matches that of the original train way and time_const has a value
+                # costs are updated according to that. Otherwise it takes the calculated costs
+                if self.id[i] == time_const_id[k] and time_const[k] != None:
+                    with CursorFromConnectionFromPool() as cursor:
+                        cursor.execute("UPDATE merged_ways SET costs = {} \
+                                        WHERE pk = {};".format(time_const[k], time_const_id[k]))
+                    # If a match has been found break out of the loop
+                    break
+                else:
+                    with CursorFromConnectionFromPool() as cursor:
+                        cursor.execute("UPDATE merged_ways SET costs = {} \
+                                        WHERE pk = {};".format(time_calc[i], self.id[i]))
 
     @staticmethod
     def __load_conn_ways(line_number):

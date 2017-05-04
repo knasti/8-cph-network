@@ -8,8 +8,8 @@ train = Train(1.15, -1.15, 19)
 
 pedestrian = Pedestrian(1.39) # 1.39 m/s = 5 km/h
 
-train.update_moving_costs()
 
+train.update_moving_costs()
 
 
 '''

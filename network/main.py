@@ -1,16 +1,19 @@
 from database import Database
 from train import Train
+from metro import Metro
 from pedestrian import Pedestrian
 
 Database.initialise(user='postgres', password='postgres', host='localhost', database='cph_network')
 
 train = Train(1.15, -1.15, 19)
 
+metro = Metro(1.15, -1.15, 19)
+
 pedestrian = Pedestrian(1.39) # 1.39 m/s = 5 km/h
 
-
+metro.update_moving_costs()
 train.update_moving_costs()
-
+pedestrian.update_moving_costs()
 
 '''
 Database.initialise(user='postgres', password='postgres', host='localhost', database='public_transport_2')

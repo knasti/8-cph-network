@@ -11,7 +11,7 @@ class Train:
         self.id = []
 
     def __repr__(self):
-        return "<Train {}>".format(self.value)
+        return "<Train>"
 
     def load_length_from_db(self):
         # Connecting to database
@@ -122,7 +122,7 @@ class Train:
                     with CursorFromConnectionFromPool() as cursor:
                         cursor.execute("UPDATE merged_ways SET costs = {} \
                                         WHERE pk = {};".format(time_const[k], time_const_id[k]))
-                    # If a match has been found break out of the loop
+                    # If a match has been found break out of the k-loop
                     break
                 else:
                     with CursorFromConnectionFromPool() as cursor:

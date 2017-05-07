@@ -1,8 +1,11 @@
 import os.path
 import re
 import ogr
+import time
 from database import Database
 from database import CursorFromConnectionFromPool
+
+start_time = time.time()
 
 # Before running this script do the following:
  # 1: Change rootdir to the folder in which you have your shapefiles
@@ -22,8 +25,6 @@ table_names = []
 # Creating an empty list to store transport type
 transport = []
 
-# Creating an empty list to store line number in
-line_number = []
 
 # looping through directories and sub directories to find files
 for subdir, dirs, files in os.walk(rootdir):
@@ -46,15 +47,12 @@ for subdir, dirs, files in os.walk(rootdir):
                 transport.append('metro')
             elif subdir.endswith('pedestrian'):
                 transport.append('pedestrian')
+            elif subdir.endswith('bus_ways'):
+                transport.append('bus')
             else:
                 transport.append('unknown')
 
-            # Storing line number, it will always be in the same location towards the end XX_line_LINENUMBER_ways.shp
-            # NEEDS POLISHING, REGEX OR SLICING
-            if subdir.endswith('pedestrian'):
-                line_number.append('pedestrian')
-            else:
-                line_number.append(f[-10])
+print("--- %s seconds ---" % (time.time() - start_time))
 
 for k in range(len(src_file)):
     # Creating a new table in postgres with the necessary columns
@@ -83,30 +81,41 @@ for k in range(len(src_file)):
         wkt = feature.GetGeometryRef().ExportToWkt()
         time_const = feature.GetField("time_const")
         connector = feature.GetField("connector")
+        line_number = feature.GetField("l_number")
         # Storing the applicable values
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("INSERT INTO {} (name, geom, time_const, connector) \
-                            VALUES (%s, ST_GeometryFromText(%s, 4326), %s, %s);".format(table_names[k]),
-                                [name, wkt, time_const, connector])
+            cursor.execute("INSERT INTO {} (name, geom, time_const, connector, line_number) \
+                            VALUES (%s, ST_GeometryFromText(%s, 4326), %s, %s, %s);".format(table_names[k]),
+                                [name, wkt, time_const, connector, line_number])
 
     # Adding transport and line_number to the tables
     with CursorFromConnectionFromPool() as cursor:
-        cursor.execute("UPDATE {0} SET transport = '{1}'; \
-                        UPDATE {0} SET line_number = '{2}'".format(table_names[k], transport[k], line_number[k]))
+        cursor.execute("UPDATE {} SET transport = '{}';".format(table_names[k], transport[k]))
 
 
-union_tables = ""
+print("--- %s seconds ---" % (time.time() - start_time))
+
+
+union_tables = ''
+
+# Making union SQL-string for the temporary tables
 for i in range(len(table_names)):
     if i < len(table_names) - 1:
         union_tables = union_tables + " SELECT * FROM {} UNION ALL".format(table_names[i])
     else:
         union_tables = union_tables + " SELECT * FROM {}".format(table_names[i])
 
+print(union_tables)
+print("--- %s seconds ---" % (time.time() - start_time))
+
 # Creating the complete network through unions of the existing tables
 with CursorFromConnectionFromPool() as cursor:
     cursor.execute("DROP TABLE IF EXISTS merged_ways")
     cursor.execute("SELECT * INTO merged_ways \
                     FROM (" + union_tables + ")t")
+
+print("--- %s seconds ---" % (time.time() - start_time))
+
 # Creating source, target for network topology as well as a primary key for the table
 with CursorFromConnectionFromPool() as cursor:
     cursor.execute("ALTER TABLE merged_ways ADD COLUMN pk BIGSERIAL PRIMARY KEY; \
@@ -124,4 +133,46 @@ with CursorFromConnectionFromPool() as cursor:
 
 # Creating the network topology with pgrouting
 with CursorFromConnectionFromPool() as cursor:
-    cursor.execute("SELECT pgr_createtopology('merged_ways', 0.00002, 'geom', 'pk');")
+    cursor.execute("SELECT pgr_createtopology('merged_ways', 0.00001, 'geom', 'pk');")
+
+
+print("--- %s seconds ---" % (time.time() - start_time))
+
+
+
+'''
+# Creating a list to store union SQL-strings
+union_tables = []
+j = 0
+counter = 7
+
+# Adding the necessary amount of entries to the list
+for i in range(math.ceil(len(table_names) / counter)):
+    union_tables.append('')
+
+for i in range(len(table_names)):
+        if i < counter:
+            if i < counter - 1:
+                union_tables[j] = union_tables[j] + " SELECT * FROM {} UNION ALL".format(table_names[i])
+            else:
+                union_tables[j] = union_tables[j] + " SELECT * FROM {}".format(table_names[i])
+                counter = counter + 7
+                if counter > (len(table_names) - 1):
+                    counter = len(table_names) - 1
+                j = j + 1
+
+
+temp_tables =[]
+for i in range(len(union_tables)):
+    temp_tables.append('temp_{}'.format(i))
+
+for i in range(len(union_tables)):
+    with CursorFromConnectionFromPool() as cursor:
+        cursor.execute("DROP TABLE IF EXISTS {}".format(temp_tables[i]))
+        cursor.execute("SELECT * INTO {} \
+                        FROM (".format(temp_tables[i]) + union_tables[i] + ")t")
+
+# resetting union_tables list
+union_tables = ''
+
+'''

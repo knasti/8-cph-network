@@ -1,5 +1,6 @@
 from database import CursorFromConnectionFromPool
 import formulas
+from itertools import product
 
 
 class Bus:
@@ -109,16 +110,77 @@ class Bus:
             time_const_id = [] # Makes sure the list is empty
             if bus_time_const_costs:
                 for i in range(len(bus_time_const_costs)): # Iterating through all of the bus data
-                    time_const.append(bus_time_const_costs[i][0]) # Removing the tuples that comes along with the DB queries
-                    time_const_id.append(bus_time_const_costs[i][1]) # Removing the tuples that comes along with the DB queries
+                    if bus_time_const_costs[i][0] > 0:  # Making sure there are no "fake" costs appended to the list
+                        time_const.append(bus_time_const_costs[i][0]) # Removing the tuples that comes along with the DB queries
+                        time_const_id.append(bus_time_const_costs[i][1]) # Removing the tuples that comes along with the DB queries
 
         # Iterates through all non-connector bus ways
+        for i in range(len(self.spatial_length)):
+            # q measures whether time_const (1) or time_calc (0) have been used
+            q = 0
+            for k in range(len(time_const)):
+                # If the time const id matches that of the original bus way and time_const has a value
+                # costs are updated according to that. Otherwise it takes the calculated costs
+                if self.id[i] == time_const_id[k]:
+                    with CursorFromConnectionFromPool() as cursor:
+                        cursor.execute("UPDATE merged_ways SET costs = {} \
+                                        WHERE pk = {};".format(time_const[k], time_const_id[k]))
+                    # updates q
+                    q = 1
+                    # If a match has been found break out of the k-loop
+                    break
+            # if time_const is not used, use time_calc
+            if q == 0:
+                with CursorFromConnectionFromPool() as cursor:
+                    cursor.execute("UPDATE merged_ways SET costs = {} \
+                                    WHERE pk = {};".format(time_calc[i], self.id[i]))
+
+    # Updating merged_ways table with connector costs
+    @staticmethod
+    def update_conn_costs(daytime):
+        # daytime = 0, rush hour
+        # daytime = 1, day
+        # daytime = 2, evening
+        # daytime = 3, night
+        with CursorFromConnectionFromPool() as cursor:
+            if daytime == 0:
+                cursor.execute("UPDATE merged_ways AS mv \
+                                SET costs = cc.avg_wait_time_rh \
+                                FROM conn_costs AS cc \
+                                WHERE mv.line_number = cc.line_number \
+                                AND mv.connector = 1 \
+                                AND mv.transport = 'bus';")
+            if daytime == 1:
+                cursor.execute("UPDATE merged_ways AS mv \
+                                SET costs = cc.avg_wait_time_day \
+                                FROM conn_costs AS cc \
+                                WHERE mv.line_number = cc.line_number \
+                                AND mv.connector = 1 \
+                                AND mv.transport = 'bus';")
+            if daytime == 2:
+                cursor.execute("UPDATE merged_ways AS mv \
+                                SET costs = cc.avg_wait_time_evening \
+                                FROM conn_costs AS cc \
+                                WHERE mv.line_number = cc.line_number \
+                                AND mv.connector = 1 \
+                                AND mv.transport = 'bus';")
+            if daytime == 3:
+                cursor.execute("UPDATE merged_ways AS mv \
+                                SET costs = cc.avg_wait_time_night \
+                                FROM conn_costs AS cc \
+                                WHERE mv.line_number = cc.line_number \
+                                AND mv.connector = 1 \
+                                AND mv.transport = 'bus';")
+
+
+'''
+
         for i in range(len(self.spatial_length)):
             # Iterates through all non-connector bus ways that have a time_const value
             for k in range(len(time_const)):
                 # If the time const id matches that of the original bus way and time_const has a value
                 # costs are updated according to that. Otherwise it takes the calculated costs
-                if self.id[i] == time_const_id[k] and time_const[k] != None:
+                if self.id[i] == time_const_id[k] and time_const[k] != 0:
                     with CursorFromConnectionFromPool() as cursor:
                         cursor.execute("UPDATE merged_ways SET costs = {} \
                                         WHERE pk = {};".format(time_const[k], time_const_id[k]))
@@ -129,25 +191,5 @@ class Bus:
                         cursor.execute("UPDATE merged_ways SET costs = {} \
                                         WHERE pk = {};".format(time_calc[i], self.id[i]))
 
-    @staticmethod
-    def __load_conn_ways(line_number):
-        # List to store conn_ways ids in
-        conn_ways = []
 
-        # Connecting to database
-        with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT pk FROM merged_ways WHERE connector = 1 AND transport = 'bus' AND line_number = %s", [line_number])
-            conn_data = cursor.fetchall()  # Stores the result of the query in the bus_data variable
-            if conn_data:
-                for i in range(len(conn_data)): # Iterating through all of the conn data
-                    conn_ways.append(conn_data[i][0]) # Removing the tuples that comes along with the DB queries
-            return conn_ways
-
-    def calculate_conn_costs(self, line_number, avg_waiting_time):
-        # Getting the ids for the bus ways
-        conn_ways = self.__load_conn_ways(line_number)
-
-        # Connecting to database
-        with CursorFromConnectionFromPool() as cursor:
-            for i in range(len(conn_ways)):
-                cursor.execute('UPDATE merged_ways SET costs = %s WHERE pk = %s', (avg_waiting_time, conn_ways[i]))
+'''

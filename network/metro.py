@@ -118,7 +118,7 @@ class Metro:
             for k in range(len(time_const)):
                 # If the time const id matches that of the original metro way and time_const has a value
                 # costs are updated according to that. Otherwise it takes the calculated costs
-                if self.id[i] == time_const_id[k] and time_const[k] != None:
+                if self.id[i] == time_const_id[k] and (time_const[k] != None or time_const[k] != 0):
                     with CursorFromConnectionFromPool() as cursor:
                         cursor.execute("UPDATE merged_ways SET costs = {} \
                                         WHERE pk = {};".format(time_const[k], time_const_id[k]))
@@ -129,25 +129,39 @@ class Metro:
                         cursor.execute("UPDATE merged_ways SET costs = {} \
                                         WHERE pk = {};".format(time_calc[i], self.id[i]))
 
+    # Updating merged_ways table with connector costs
     @staticmethod
-    def __load_conn_ways(line_number):
-        # List to store conn_ways ids in
-        conn_ways = []
-
-        # Connecting to database
+    def update_conn_costs(daytime):
+        # daytime = 0, rush hour
+        # daytime = 1, day
+        # daytime = 2, evening
+        # daytime = 3, night
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT pk FROM merged_ways WHERE connector = 1 AND transport = 'metro' AND line_number = '%s'", [line_number])
-            conn_data = cursor.fetchall()  # Stores the result of the query in the metro_data variable
-            if conn_data:
-                for i in range(len(conn_data)): # Iterating through all of the conn data
-                    conn_ways.append(conn_data[i][0]) # Removing the tuples that comes along with the DB queries
-            return conn_ways
-
-    def calculate_conn_costs(self, line_number, avg_waiting_time):
-        # Getting the ids for the metro ways
-        conn_ways = self.__load_conn_ways(line_number)
-
-        # Connecting to database
-        with CursorFromConnectionFromPool() as cursor:
-            for i in range(len(conn_ways)):
-                cursor.execute("UPDATE merged_ways SET costs = %s WHERE pk = %s", (avg_waiting_time, conn_ways[i]))
+            if daytime == 0:
+                cursor.execute("UPDATE merged_ways AS mv \
+                                SET costs = cc.avg_wait_time_rh \
+                                FROM conn_costs AS cc \
+                                WHERE mv.line_number = cc.line_number \
+                                AND mv.connector = 1\
+                                AND mv.transport = 'metro';")
+            if daytime == 1:
+                cursor.execute("UPDATE merged_ways AS mv \
+                                SET costs = cc.avg_wait_time_day \
+                                FROM conn_costs AS cc \
+                                WHERE mv.line_number = cc.line_number \
+                                AND mv.connector = 1\
+                                AND mv.transport = 'metro';")
+            if daytime == 2:
+                cursor.execute("UPDATE merged_ways AS mv \
+                                SET costs = cc.avg_wait_time_evening \
+                                FROM conn_costs AS cc \
+                                WHERE mv.line_number = cc.line_number \
+                                AND mv.connector = 1\
+                                AND mv.transport = 'metro';")
+            if daytime == 3:
+                cursor.execute("UPDATE merged_ways AS mv \
+                                SET costs = cc.avg_wait_time_night \
+                                FROM conn_costs AS cc \
+                                WHERE mv.line_number = cc.line_number \
+                                AND mv.connector = 1\
+                                AND mv.transport = 'metro';")

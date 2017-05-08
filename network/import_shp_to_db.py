@@ -9,7 +9,7 @@ start_time = time.time()
  # 2: Create a database that has extensions postgis and pgrouting
  # 3: Change database credentials
 
-rootdir = ('C:\\Users\\Bruger\\Dropbox\\myUniversity\\2. secondSemester\\8. Semester\\3. Data\\public_transport_data')
+rootdir = (r'C:\Users\Bruger\Dropbox\myUniversity\2. secondSemester\8. Semester\3. Data\public_transport_data')
 os.chdir(rootdir)
 Database.initialise(user='postgres', password='postgres', host='localhost', database='cph_network')
 

@@ -136,7 +136,7 @@ class Metro:
 
         # Connecting to database
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT pk FROM merged_ways WHERE connector = 1 AND transport = 'metro' AND line_number = %s", [line_number])
+            cursor.execute("SELECT pk FROM merged_ways WHERE connector = 1 AND transport = 'metro' AND line_number = '%s'", [line_number])
             conn_data = cursor.fetchall()  # Stores the result of the query in the metro_data variable
             if conn_data:
                 for i in range(len(conn_data)): # Iterating through all of the conn data
@@ -150,4 +150,4 @@ class Metro:
         # Connecting to database
         with CursorFromConnectionFromPool() as cursor:
             for i in range(len(conn_ways)):
-                cursor.execute('UPDATE merged_ways SET costs = %s WHERE pk = %s', (avg_waiting_time, conn_ways[i]))
+                cursor.execute("UPDATE merged_ways SET costs = %s WHERE pk = %s", (avg_waiting_time, conn_ways[i]))

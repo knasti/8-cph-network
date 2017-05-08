@@ -5,11 +5,11 @@ from database import CursorFromConnectionFromPool
 start_time = time.time()
 
 # Before running this script do the following:
- # 1: Change rootdir to the folder in which you have your shapefiles
- # 2: Create a database that has extensions postgis and pgrouting
- # 3: Change database credentials
+# 1: Change rootdir to the folder in which you have your shapefiles
+# 2: Create a database that has extensions postgis and pgrouting
+# 3: Change database credentials
 
-rootdir = (r'C:\Users\Bruger\Dropbox\myUniversity\2. secondSemester\8. Semester\3. Data\public_transport_data')
+rootdir = r'C:\Users\Bruger\Dropbox\myUniversity\2. secondSemester\8. Semester\3. Data\public_transport_data'
 os.chdir(rootdir)
 Database.initialise(user='postgres', password='postgres', host='localhost', database='cph_network')
 
@@ -133,42 +133,3 @@ with CursorFromConnectionFromPool() as cursor:
 
 
 print("--- %s seconds ---" % (time.time() - start_time))
-
-
-
-'''
-# Creating a list to store union SQL-strings
-union_tables = []
-j = 0
-counter = 7
-
-# Adding the necessary amount of entries to the list
-for i in range(math.ceil(len(table_names) / counter)):
-    union_tables.append('')
-
-for i in range(len(table_names)):
-        if i < counter:
-            if i < counter - 1:
-                union_tables[j] = union_tables[j] + " SELECT * FROM {} UNION ALL".format(table_names[i])
-            else:
-                union_tables[j] = union_tables[j] + " SELECT * FROM {}".format(table_names[i])
-                counter = counter + 7
-                if counter > (len(table_names) - 1):
-                    counter = len(table_names) - 1
-                j = j + 1
-
-
-temp_tables =[]
-for i in range(len(union_tables)):
-    temp_tables.append('temp_{}'.format(i))
-
-for i in range(len(union_tables)):
-    with CursorFromConnectionFromPool() as cursor:
-        cursor.execute("DROP TABLE IF EXISTS {}".format(temp_tables[i]))
-        cursor.execute("SELECT * INTO {} \
-                        FROM (".format(temp_tables[i]) + union_tables[i] + ")t")
-
-# resetting union_tables list
-union_tables = ''
-
-'''

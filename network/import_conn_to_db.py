@@ -1,4 +1,3 @@
-import re
 from database import Database
 from database import CursorFromConnectionFromPool
 
@@ -22,7 +21,7 @@ with CursorFromConnectionFromPool() as cursor:
                         );")
 
 # Creating list to store line number and transport type
-line_number =[]
+line_number = []
 transport = []
 
 # Fetching line numbers and transport from the existing table, merged ways
@@ -123,7 +122,7 @@ with CursorFromConnectionFromPool() as cursor:
     bus_line_data = cursor.fetchall()
     if bus_line_data:
         for i in range(len(bus_line_data)):
-            bus_line_number.append(bus_line_data[i][0]) # Removing the tuples that comes along with the DB queries
+            bus_line_number.append(bus_line_data[i][0])  # Removing the tuples that comes along with the DB queries
 
 # Creating empty dicts, that has line numbers as key and frequency as value
 bus_frq_rh = {}
@@ -153,7 +152,7 @@ for i in range(len(bus_line_number)):
         bus_frq_day[bus_line_number[i]] = 1000000
         bus_frq_evening[bus_line_number[i]] = 1000000
         bus_frq_night[bus_line_number[i]] = 7200
-    else: # yellow buses
+    else:  # yellow buses
         bus_frq_rh[bus_line_number[i]] = 1200
         bus_frq_day[bus_line_number[i]] = 1200
         bus_frq_evening[bus_line_number[i]] = 1800

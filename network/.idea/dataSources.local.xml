@@ -7,5 +7,11 @@
       <introspection-scope>public_transport_2:pg_catalog,postgres,public</introspection-scope>
       <resolve-scope>public_transport_2:postgres,public</resolve-scope>
     </data-source>
+    <data-source name="PostgreSQL - cph_network@localhost" uuid="851013cb-a61c-4937-a524-f2e150bbac1a">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <introspection-scope>cph_network:public,pg_catalog,postgres</introspection-scope>
+      <resolve-scope>cph_network:public,postgres</resolve-scope>
+    </data-source>
   </component>
 </project>

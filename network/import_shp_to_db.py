@@ -1,7 +1,4 @@
-import os.path
-import re
-import ogr
-import time
+import os, re, ogr, time
 from database import Database
 from database import CursorFromConnectionFromPool
 
@@ -56,7 +53,6 @@ print("--- %s seconds ---" % (time.time() - start_time))
 
 for k in range(len(src_file)):
     # Creating a new table in postgres with the necessary columns
-    # MANGLER AT INDFØRE PEDESTRIANS ORDENTLIGT
     with CursorFromConnectionFromPool() as cursor:
         cursor.execute("DROP TABLE IF EXISTS {}".format(table_names[k]))
         cursor.execute("CREATE TABLE {} ( \

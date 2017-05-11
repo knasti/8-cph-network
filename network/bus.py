@@ -10,6 +10,7 @@ class Bus:
         self.velocity = velocity
         self.spatial_length = []
         self.id = []
+        self.line_number = []
 
     def __repr__(self):
         return "<Bus>"
@@ -17,7 +18,7 @@ class Bus:
     def load_length_from_db(self):
         # Connecting to database
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT spatial_length, pk FROM merged_ways \
+            cursor.execute("SELECT spatial_length, pk, line_number FROM merged_ways \
                             WHERE connector = 0 AND transport = 'bus'")
             bus_data = cursor.fetchall() # Stores the result of the query in the bus_data variable
             self.spatial_length = [] # Makes sure the list is empty
@@ -26,6 +27,7 @@ class Bus:
                 for i in range(len(bus_data)): # Iterating through all of the bus data
                     self.spatial_length.append(bus_data[i][0]) # Removing the tuples that comes along with the DB queries
                     self.id.append(bus_data[i][1])  # Removing the tuples that comes along with the DB queries
+                    self.line_number.append(bus_data[i][2])  # Removing the tuples that comes along with the DB queries
         return None
 
     def calculate_moving_costs(self):
@@ -88,7 +90,7 @@ class Bus:
 
     def update_time_calc_costs(self):
         # Storing the moving costs
-        costs = self.calculate_moving_costs()
+        costs = self.calculate_moving_costs_2()
 
         # Running through all of the bus entries
         for i in range(len(self.spatial_length)):
@@ -99,7 +101,7 @@ class Bus:
 
     def update_moving_costs(self):
         # Storing the calculated moving costs
-        time_calc = self.calculate_moving_costs()
+        time_calc = self.calculate_moving_costs_2()
 
         # Stores all the time_const values and the ids belonging to them
         with CursorFromConnectionFromPool() as cursor:
@@ -116,7 +118,7 @@ class Bus:
 
         # Iterates through all non-connector bus ways
         for i in range(len(self.spatial_length)):
-            # q measures whether time_const (1) or time_calc (0) have been used
+            # q measures whether time_const (q=1) or time_calc (q=0) have been used
             q = 0
             for k in range(len(time_const)):
                 # If the time const id matches that of the original bus way and time_const has a value
@@ -129,7 +131,7 @@ class Bus:
                     q = 1
                     # If a match has been found break out of the k-loop
                     break
-            # if time_const is not used, use time_calc
+            # If time_const is not used, use time_calc
             if q == 0:
                 with CursorFromConnectionFromPool() as cursor:
                     cursor.execute("UPDATE merged_ways SET costs = {} \
@@ -171,6 +173,134 @@ class Bus:
                                 WHERE mv.line_number = cc.line_number \
                                 AND mv.connector = 1 \
                                 AND mv.transport = 'bus';")
+
+    def calculate_moving_costs_2(self):
+        self.load_length_from_db()
+
+        # Dict for a bus times, evening times
+        a_bus_time = {
+                    "1A": 78 * 60,
+                    "2A": 56 * 60,
+                    "3A": 30 * 60,
+                    "4A": 61 * 60,
+                    "5A": 54 * 60,
+                    "6A": 65 * 60,
+                    "8A": 36 * 60,
+                    "9A": 61 * 60
+            }
+
+        # Dict for s bus times
+        s_bus_time = {
+            #        "150S": 52 * 60, # Bad representation of city driving
+                    "200S": 59 * 60,
+                    "250S": 48 * 60,
+                    "350S": 92 * 60
+            #        "500S": 100 * 60 # Bad representation of city driving
+            }
+
+        # Dict for yellow bus times
+        y_bus_time = {
+                    "10": 53 * 60,
+                    "13": 61 * 60,
+                    "37": 34 * 60,
+                    "185": 31 * 60
+            }
+
+        # Dict for e bus times
+        y_bus_time = {
+                    "10": 53 * 60,
+                    "13": 61 * 60,
+                    "37": 34 * 60,
+                    "185": 31 * 60
+            }
+
+        # Creating an empty list to store bus line numbers in
+        bus_line_numbers = []
+
+        # Getting the bus line_numbers
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute("SELECT DISTINCT line_number FROM merged_ways \
+                            WHERE transport = 'bus'")
+            bus_data = cursor.fetchall()
+            if bus_data:
+                for i in range(len(bus_data)):
+                    bus_line_numbers.append(bus_data[i][0])
+
+        # Dict for bus line lengths
+        bus_line_length = {}
+
+        for i in range(len(bus_line_numbers)):
+            with CursorFromConnectionFromPool() as cursor:
+                cursor.execute("SELECT spatial_length FROM merged_ways \
+                                WHERE connector = 0 \
+                                AND line_number = '{}';".format(bus_line_numbers[i]))
+                bus_data = cursor.fetchall()
+                print(i)
+                if bus_data:
+                    # creating a list to store temporarily lengths
+                    temp_lengths = []
+                    for k in range(len(bus_data)):
+                        temp_lengths.append(bus_data[k][0])
+                    length = sum(temp_lengths)
+                    bus_line_length[bus_line_numbers[i]] = length
+
+        # Creating a-bus velocity dict
+        a_bus_velocity = {}
+        a_bus_avg_velocity = 0
+
+        # Creating s-bus velocity dict
+        s_bus_velocity = {}
+        s_bus_avg_velocity = 0
+
+        # Creating yellow-bus velocity dict
+        y_bus_velocity = {}
+        y_bus_avg_velocity = 0
+
+        # Calculating average velocity for a-bus lines
+        for key in a_bus_time:
+            a_bus_velocity[key] = bus_line_length[key] / a_bus_time[key]
+            a_bus_avg_velocity = a_bus_avg_velocity + a_bus_velocity[key]
+
+        a_bus_avg_velocity /= len(a_bus_time)
+
+        for key in s_bus_time:
+            s_bus_velocity[key] = bus_line_length[key] / s_bus_time[key]
+            s_bus_avg_velocity = s_bus_avg_velocity + s_bus_velocity[key]
+
+        s_bus_avg_velocity /= len(s_bus_time)
+
+        for key in y_bus_time:
+            y_bus_velocity[key] = bus_line_length[key] / y_bus_time[key]
+            y_bus_avg_velocity = y_bus_avg_velocity + y_bus_velocity[key]
+
+        y_bus_avg_velocity /= len(y_bus_time)
+
+        print(a_bus_velocity)
+        print(a_bus_avg_velocity)
+
+        print(s_bus_velocity)
+        print(s_bus_avg_velocity)
+
+        print(y_bus_velocity)
+        print(y_bus_avg_velocity)
+
+        # Creating an empty list for the bus times
+        bus_time = []
+
+        # Iterating over all bus lengths to determine the cost
+        for i in range(len(self.spatial_length)):
+            # If A is in line_number, the average velocity for A-buses is used
+            if 'A' in self.line_number[i]:
+                bus_time.append(self.spatial_length[i] / a_bus_avg_velocity)
+            # If S or E is in line_number, the average velocity for S-buses is used
+            elif ('S' or 'E') in self.line_number[i]:
+                bus_time.append(self.spatial_length[i] / s_bus_avg_velocity)
+            # If the above is not true the bus i a yellow or a night bus
+            else:
+                bus_time.append(self.spatial_length[i] / y_bus_avg_velocity)
+
+        return bus_time
+
 
 
 '''

@@ -15,6 +15,9 @@ metro = Metro(1.15, -1.15, 19)
 
 bus = Bus(1.15, -1.15, 19)
 
+bus.calculate_moving_costs_2()
+
+
 pedestrian = Pedestrian(1.39) # 1.39 m/s = 5 km/h
 
 

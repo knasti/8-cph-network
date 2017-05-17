@@ -10,68 +10,32 @@ Database.initialise(user='postgres', password='postgres', host='localhost', data
 
 start_time = time.time()
 
+# Initiating the transport classes
 train = Train()
-
 metro = Metro()
-
 bus = Bus()
-
-import_shp_to_db.import_shp_to_db(1)
-
-import_conn_to_db.import_conn_to_db()
-
-
-bus.calculate_moving_costs_2()
-
-
 pedestrian = Pedestrian(1.39) # 1.39 m/s = 5 km/h
 
+# Importing shapefiles into the db, only run this the first time or in case of changed shapefiles
+import_shp_to_db.import_shp_to_db(1)
 
+# Importing connector costs into a table in postgres, only run the first time or if the connector costs have changed
+import_conn_to_db.import_conn_to_db()
 
-train.update_time_calc_costs()
-
-metro.update_time_calc_costs()
-
+# Updates all of the calculated costs
+train.update_time_calc_costs(2, 2, 20)
+metro.update_time_calc_costs(2, 2, 20)
 bus.update_time_calc_costs()
 
-print("--- %s seconds ---" % (time.time() - start_time))
-
+# Applying moving costs to the objects
 train.update_moving_costs()
-
-print("--- %s seconds ---" % (time.time() - start_time))
-
-train.update_conn_costs(1)
-
-print("--- %s seconds ---, LOOK FOR THIS" % (time.time() - start_time))
-
 metro.update_moving_costs()
-
-print("--- %s seconds ---" % (time.time() - start_time))
-
-metro.update_conn_costs(1)
-
-print("--- %s seconds ---, METRO" % (time.time() - start_time))
-
 bus.update_moving_costs()
-
-print("--- %s seconds ---" % (time.time() - start_time))
-
-bus.update_conn_costs(1)
-
-print("--- %s seconds ---, BUSES" % (time.time() - start_time))
-
 pedestrian.update_moving_costs()
 
-print("--- %s seconds ---, PEDESTRIAN" % (time.time() - start_time))
+# Applying connector costs to the objects, 0 = rh, 1 = day, 2 = evening, 3 = night
+train.update_conn_costs(1)
+metro.update_conn_costs(1)
+bus.update_conn_costs(1)
 
-'''
-Database.initialise(user='postgres', password='postgres', host='localhost', database='public_transport_2')
-
-train = Train(6)
-print(train.spatial_length)
-
-print(train.calculate_moving_costs(19, 1.15, -1.15))
-
-print(train.calculate_moving_costs(60, 8.15, -1.15))
-
-'''
+print("--- %s seconds ---" % (time.time() - start_time))

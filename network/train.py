@@ -82,9 +82,9 @@ class Train:
                 sum_time = acc_time + dec_time
                 return sum_time
 
-    def update_time_calc_costs(self):
+    def update_time_calc_costs(self, acceleration, deceleration, velocity):
         # Storing the moving costs
-        costs = self.calculate_moving_costs()
+        costs = self.calculate_moving_costs(acceleration, deceleration, velocity)
 
         # Running through all of the train entries
         for i in range(len(self.spatial_length)):

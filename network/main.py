@@ -1,13 +1,20 @@
 import time
+import import_shp_to_db, import_conn_to_db
 from database import Database
 from train import Train
 from metro import Metro
 from bus import Bus
 from pedestrian import Pedestrian
 
+Database.initialise(user='postgres', password='postgres', host='localhost', database='cph_network')
+
 start_time = time.time()
 
-Database.initialise(user='postgres', password='postgres', host='localhost', database='cph_network')
+import_shp_to_db.import_shp_to_db(1)
+
+import_conn_to_db.import_conn_to_db()
+
+
 
 train = Train(1.15, -1.15, 19)
 

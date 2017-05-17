@@ -94,20 +94,19 @@ class Train:
                                 WHERE pk = {};".format(costs[i], self.id[i]))
 
     def update_moving_costs(self):
-        # Storing the calculated moving costs
-        time_calc = self.calculate_moving_costs()
-
-        # Stores all the time_const values and the ids belonging to them
+        # Stores all the time_const and time_calc values and the ids belonging to them
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT time_const, pk FROM merged_ways \
+            cursor.execute("SELECT time_const, time_calc, pk FROM merged_ways \
                             WHERE connector = 0 AND transport = 'train'")
             train_time_const_costs = cursor.fetchall()  # Stores the result of the query in the train_data variable
             time_const = [] # Makes sure the list is empty
-            time_const_id = [] # Makes sure the list is empty
+            time_calc = []  # Makes sure the list is empty
+            time_id = [] # Makes sure the list is empty
             if train_time_const_costs:
                 for i in range(len(train_time_const_costs)): # Iterating through all of the train data
                     time_const.append(train_time_const_costs[i][0]) # Removing the tuples that comes along with the DB queries
-                    time_const_id.append(train_time_const_costs[i][1]) # Removing the tuples that comes along with the DB queries
+                    time_calc.append(train_time_const_costs[i][1])  # Removing the tuples that comes along with the DB queries
+                    time_id.append(train_time_const_costs[i][2]) # Removing the tuples that comes along with the DB queries
 
         # Iterates through all non-connector train ways
         for i in range(len(self.spatial_length)):
@@ -115,16 +114,16 @@ class Train:
             for k in range(len(time_const)):
                 # If the time const id matches that of the original train way and time_const has a value
                 # costs are updated according to that. Otherwise it takes the calculated costs
-                if self.id[i] == time_const_id[k] and (time_const[k] != None or time_const[k] != 0):
+                if self.id[i] == time_id[k] and time_const[k] > 0:
                     with CursorFromConnectionFromPool() as cursor:
                         cursor.execute("UPDATE merged_ways SET costs = {} \
-                                        WHERE pk = {};".format(time_const[k], time_const_id[k]))
+                                        WHERE pk = {};".format(time_const[k], time_id[k]))
                     # If a match has been found break out of the k-loop
                     break
                 else:
                     with CursorFromConnectionFromPool() as cursor:
                         cursor.execute("UPDATE merged_ways SET costs = {} \
-                                        WHERE pk = {};".format(time_calc[i], self.id[i]))
+                                        WHERE pk = {};".format(time_calc[i], time_id[i]))
 
     # Updating merged_ways table with connector costs
     @staticmethod

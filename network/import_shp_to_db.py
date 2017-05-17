@@ -44,7 +44,7 @@ for subdir, dirs, files in os.walk(rootdir):
                 transport.append('metro')
             elif subdir.endswith('pedestrian'):
                 transport.append('pedestrian')
-            elif subdir.endswith('bus_ways'):
+            elif subdir.endswith('Bus_ways'):
                 transport.append('bus')
             else:
                 transport.append('unknown')
@@ -107,6 +107,7 @@ print("--- %s seconds ---" % (time.time() - start_time))
 # Creating the complete network through unions of the existing tables
 with CursorFromConnectionFromPool() as cursor:
     cursor.execute("DROP TABLE IF EXISTS merged_ways")
+    cursor.execute("DROP TABLE IF EXISTS merged_ways_vertices_pgr")
     cursor.execute("SELECT * INTO merged_ways \
                     FROM (" + union_tables + ")t")
 
@@ -123,7 +124,7 @@ with CursorFromConnectionFromPool() as cursor:
 
 # Calculate lengths of the ways in the network
 with CursorFromConnectionFromPool() as cursor:
-    cursor.execute("UPDATE merged_ways AS mw_1 SET spatial_length = ST_Length(ST_Transform(mw_2.geom, 26918)) \
+    cursor.execute("UPDATE merged_ways AS mw_1 SET spatial_length = ST_Length(ST_Transform(mw_2.geom, 25832)) \
                     FROM merged_ways AS mw_2 \
                     WHERE mw_1.pk = mw_2.pk;")
 

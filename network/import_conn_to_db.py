@@ -43,6 +43,7 @@ for i in range(len(conn_data)):
 
 # Adding frequency to trains, units in seconds
 # rush hour
+
 train_frq_rh = {
             "a": 600,
             "b": 600,

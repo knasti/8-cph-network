@@ -10,17 +10,16 @@ Database.initialise(user='postgres', password='postgres', host='localhost', data
 
 start_time = time.time()
 
+train = Train()
+
+metro = Metro()
+
+bus = Bus()
+
 import_shp_to_db.import_shp_to_db(1)
 
 import_conn_to_db.import_conn_to_db()
 
-
-
-train = Train(1.15, -1.15, 19)
-
-metro = Metro(1.15, -1.15, 19)
-
-bus = Bus(1.15, -1.15, 19)
 
 bus.calculate_moving_costs_2()
 

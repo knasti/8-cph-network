@@ -3,10 +3,7 @@ import formulas
 
 
 class Metro:
-    def __init__(self, acceleration, deceleration, velocity):
-        self.acceleration = acceleration
-        self.deceleration = deceleration
-        self.velocity = velocity
+    def __init__(self):
         self.spatial_length = []
         self.id = []
 
@@ -27,7 +24,7 @@ class Metro:
                     self.id.append(metro_data[i][1])  # Removing the tuples that comes along with the DB queries
         return None
 
-    def calculate_moving_costs(self):
+    def calculate_moving_costs(self, acceleration, deceleration, velocity):
         # Loading in the spatial lengths
         self.load_length_from_db()
 
@@ -35,28 +32,28 @@ class Metro:
         sum_time = []
 
         # Finding the time which it takes to achieve average speed
-        acc_time = formulas.time_acc(self.velocity, 0, self.acceleration)
+        acc_time = formulas.time_acc(velocity, 0, acceleration)
 
         # Now finding the distance it takes to accelerate
-        acc_distance = formulas.dist_acc(self.acceleration, acc_time)
+        acc_distance = formulas.dist_acc(acceleration, acc_time)
 
         # Finding the time in which it takes to stop
-        dec_time = formulas.time_acc(0, self.velocity, self.deceleration)
+        dec_time = formulas.time_acc(0, velocity, deceleration)
 
         # Now finding the distance it takes to decelerate
-        dec_distance = formulas.dist_acc(self.deceleration, dec_time)
+        dec_distance = formulas.dist_acc(deceleration, dec_time)
 
         # Finding the remaining distance left
         for i in range(len(self.spatial_length)):
             if self.spatial_length[i] >= (acc_distance + dec_distance):
                 distance = self.spatial_length[i] - acc_distance - dec_distance
                 # Finding the time that the metros is driving at its average speed
-                drive_time = distance / self.velocity
+                drive_time = distance / velocity
                 # Summarizing all the times
                 sum_time.append(acc_time + dec_time + drive_time)
             else:
                 # Iterating to see what the absolute max speed can be reached and still being able to brake
-                sum_time.append(self.__cost_acc_dec_times(self.acceleration, self.deceleration, self.spatial_length[i]))
+                sum_time.append(self.__cost_acc_dec_times(acceleration, deceleration, self.spatial_length[i]))
 
         return sum_time
 

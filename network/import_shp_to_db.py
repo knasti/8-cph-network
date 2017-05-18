@@ -87,7 +87,6 @@ def import_shp_to_db(network):
                                 line_number VARCHAR, \
                                 connector INTEGER \
                                 );".format(table_names[k]))
-
         # Opening the shapefile
         shapefile = ogr.Open(src_file[k])
 
@@ -153,3 +152,49 @@ def import_shp_to_db(network):
 
     # Status for the user
     print('All tables have been merged into one table, merged_ways, and topology has been created')
+
+    # Creating table to store sampling points on the network
+    with CursorFromConnectionFromPool() as cursor:
+        cursor.execute("DROP TABLE IF EXISTS sampling_points_on_network")
+        cursor.execute("CREATE TABLE sampling_points_on_network ( \
+                            FID INTEGER, \
+                            geom GEOMETRY \
+                            );")
+
+    # Looping through directories and sub directories to find the point sampling file
+    for subdir, dirs, files in os.walk(rootdir):
+        for f in files:
+            # Storing the file paths in a list
+            temp_file = os.path.join(subdir, f)
+
+            # Finding the sampling shapefile
+            if temp_file.endswith('.shp') and 'sampling' in temp_file:
+                # Appending shapefile paths to a list
+                sampling_file = temp_file
+
+    # Opening the sampling shapefile
+    shapefile = ogr.Open(sampling_file)
+
+    # Getting the layer from the shapefile
+    layer = shapefile.GetLayer()
+
+    # Looping through all features of the shapefile
+    for i in range(layer.GetFeatureCount()):
+        feature = layer.GetFeature(i)
+        fid = repr(feature.GetField("FID"))
+        wkt = feature.GetGeometryRef().ExportToWkt()
+        # Storing the applicable values
+        with CursorFromConnectionFromPool() as cursor:
+            # Inserting data from the shapefile into the table in postgres
+            cursor.execute("INSERT INTO sampling_points_on_network (FID, geom) \
+                            VALUES (%s, ST_GeometryFromText(%s, 4326));", [fid, wkt])
+
+    # Matching the geometry of sampling vertices to the ID of the network topologies
+    with CursorFromConnectionFromPool() as cursor:
+        cursor.execute("DROP TABLE IF EXISTS samplepoint_vertice_comparison")
+        cursor.execute("SELECT merged_ways_vertices_pgr.id, sampling_points_on_network.geom as geom \
+                        INTO samplepoint_vertice_comparison \
+                        FROM sampling_points_on_network, merged_ways_vertices_pgr \
+                        WHERE sampling_points_on_network.geom && merged_ways_vertices_pgr.the_geom;")
+
+    print('Sampling points have been imported to the database')

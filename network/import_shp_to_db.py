@@ -3,18 +3,36 @@ from database import CursorFromConnectionFromPool
 
 
 def import_shp_to_db(network):
-    # network = 0, current network
-    # network = 1, future network
-
     # Before running this script do the following:
     # 1: Change rootdir to the folder in which you have your shapefiles
     # 2: Create a database that has extensions postgis and pgrouting
     # 3: Change database credentials
-    if network == 0:
-        rootdir = r'C:\Users\Bruger\Dropbox\myUniversity\2. secondSemester\8. Semester\3. Data\public_transport_data\current'
-    else:
-        rootdir = r'C:\Users\Bruger\Dropbox\myUniversity\2. secondSemester\8. Semester\3. Data\public_transport_data\future'
 
+    # network = 0, current network
+    # network = 1, future network
+    # Determines which network that should be builded and setting variables and schemas accordingly
+    if network == 0:
+        # Creates schema for current network
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute("DROP SCHEMA IF EXISTS current CASCADE;")
+            cursor.execute("CREATE SCHEMA current;")
+            cursor.execute("SET search_path TO current;")
+            cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis SCHEMA current;")
+            cursor.execute("CREATE EXTENSION IF NOT EXISTS pgrouting SCHEMA current;")
+
+        curfur_fname = 'cur'
+    else:
+        # Creates schema for future network
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute("DROP SCHEMA IF EXISTS future CASCADE;")
+            cursor.execute("CREATE SCHEMA future;")
+            cursor.execute("SET search_path TO future;")
+            cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis SCHEMA future;")
+            cursor.execute("CREATE EXTENSION IF NOT EXISTS pgrouting SCHEMA future;")
+
+        curfur_fname = 'fur'
+
+    rootdir = r'C:\Users\Bruger\Dropbox\myUniversity\2. secondSemester\8. Semester\3. Data\public_transport_data'
     os.chdir(rootdir)
 
     # Creating an empty list where shapefile-paths can be stored
@@ -34,7 +52,8 @@ def import_shp_to_db(network):
             temp_file = os.path.join(subdir, f)
 
             # Making sure to only save shapefile-paths with network ways
-            if temp_file.endswith('.shp') and 'ways' in temp_file:
+            # curfur_fname determines whether or not the file is in the current or future network
+            if temp_file.endswith('.shp') and 'ways' in temp_file and curfur_fname in temp_file:
                 # Appending shapefile paths to a list
                 src_file.append(temp_file)
 
@@ -54,7 +73,7 @@ def import_shp_to_db(network):
                     transport.append('unknown')
 
     # Status for the user
-    print('Files stored in lists')
+    print('Shapefiles and table names stored in lists')
 
     for k in range(len(src_file)):
         # Creating a new table in postgres with the necessary columns

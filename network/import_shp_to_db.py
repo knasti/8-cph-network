@@ -138,7 +138,8 @@ def import_shp_to_db(network):
                         ALTER TABLE merged_ways ADD COLUMN target INTEGER; \
                         ALTER TABLE merged_ways ADD COLUMN spatial_length FLOAT8; \
                         ALTER TABLE merged_ways ADD COLUMN time_calc INTEGER; \
-                        ALTER TABLE merged_ways ADD COLUMN costs INTEGER;")
+                        ALTER TABLE merged_ways ADD COLUMN costs INTEGER; \
+                        ALTER TABLE merged_ways ADD COLUMN reverse_costs INTEGER;")
 
     # Calculate lengths of the ways in the network
     with CursorFromConnectionFromPool() as cursor:

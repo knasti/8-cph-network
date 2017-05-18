@@ -122,8 +122,8 @@ class Bus:
                 # costs are updated according to that. Otherwise it takes the calculated costs
                 if self.id[i] == time_const_id[k]:
                     with CursorFromConnectionFromPool() as cursor:
-                        cursor.execute("UPDATE merged_ways SET costs = {} \
-                                        WHERE pk = {};".format(time_const[k], time_const_id[k]))
+                        cursor.execute("UPDATE merged_ways SET costs = {0}, reverse_costs = {0} \
+                                        WHERE pk = {1};".format(time_const[k], time_const_id[k]))
                     # updates q
                     q = 1
                     # If a match has been found break out of the k-loop
@@ -131,8 +131,8 @@ class Bus:
             # If time_const is not used, use time_calc
             if q == 0:
                 with CursorFromConnectionFromPool() as cursor:
-                    cursor.execute("UPDATE merged_ways SET costs = {} \
-                                    WHERE pk = {};".format(time_calc[i], self.id[i]))
+                    cursor.execute("UPDATE merged_ways SET costs = {0}, reverse_costs = {0} \
+                                    WHERE pk = {1};".format(time_calc[i], self.id[i]))
 
     # Updating merged_ways table with connector costs
     @staticmethod
@@ -144,28 +144,28 @@ class Bus:
         with CursorFromConnectionFromPool() as cursor:
             if daytime == 0:
                 cursor.execute("UPDATE merged_ways AS mv \
-                                SET costs = cc.avg_wait_time_rh \
+                                SET reverse_costs = cc.avg_wait_time_rh, costs = 0 \
                                 FROM conn_costs AS cc \
                                 WHERE mv.line_number = cc.line_number \
                                 AND mv.connector = 1 \
                                 AND mv.transport = 'bus';")
             if daytime == 1:
                 cursor.execute("UPDATE merged_ways AS mv \
-                                SET costs = cc.avg_wait_time_day \
+                                SET reverse_costs = cc.avg_wait_time_day, costs = 0 \
                                 FROM conn_costs AS cc \
                                 WHERE mv.line_number = cc.line_number \
                                 AND mv.connector = 1 \
                                 AND mv.transport = 'bus';")
             if daytime == 2:
                 cursor.execute("UPDATE merged_ways AS mv \
-                                SET costs = cc.avg_wait_time_evening \
+                                SET reverse_costs = cc.avg_wait_time_evening, costs = 0 \
                                 FROM conn_costs AS cc \
                                 WHERE mv.line_number = cc.line_number \
                                 AND mv.connector = 1 \
                                 AND mv.transport = 'bus';")
             if daytime == 3:
                 cursor.execute("UPDATE merged_ways AS mv \
-                                SET costs = cc.avg_wait_time_night \
+                                SET reverse_costs = cc.avg_wait_time_night, costs = 0 \
                                 FROM conn_costs AS cc \
                                 WHERE mv.line_number = cc.line_number \
                                 AND mv.connector = 1 \

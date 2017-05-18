@@ -43,4 +43,4 @@ class Pedestrian:
 
         for i in range(len(self.spatial_length)):
             with CursorFromConnectionFromPool() as cursor:
-                cursor.execute("UPDATE merged_ways SET costs = {} WHERE pk = {};".format(costs[i], self.id[i]))
+                cursor.execute("UPDATE merged_ways SET costs = {0}, reverse_costs = {0} WHERE pk = {1};".format(costs[i], self.id[i]))

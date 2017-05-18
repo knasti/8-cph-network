@@ -11,7 +11,7 @@ def sampling_one_to_many():
         cursor.execute("SELECT DISTINCT ON (end_vid) *, agg_cost/60 as cost_m, samplepoint_vertice_comparison.geom AS pointgeom \
                         INTO samplepoint_one_to_many \
                         FROM samplepoint_vertice_comparison, pgr_dijkstra( \
-                            'SELECT pk as id, source, target, costs as cost FROM merged_ways', \
+                            'SELECT pk as id, source, target, costs as cost, reverse_costs as reverse_cost FROM merged_ways', \
                              2, (select array_agg(id::integer) as array \
                              FROM samplepoint_vertice_comparison), \
                              FALSE) \
@@ -43,6 +43,6 @@ def sampling_many_to_many():
 
 
 
-sampling_many_to_many()
+#sampling_many_to_many()
 
-# sampling_one_to_many()
+sampling_one_to_many()

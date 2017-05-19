@@ -14,11 +14,11 @@ def sampling_one_to_many():
                             'SELECT pk as id, source, target, costs as cost, reverse_costs as reverse_cost FROM merged_ways', \
                              2, (select array_agg(id::integer) as array \
                              FROM samplepoint_vertice_comparison), \
-                             FALSE) \
+                             TRUE) \
                         WHERE samplepoint_vertice_comparison.id = end_vid order by end_vid, agg_cost desc;")
 
 
-def sampling_many_to_many():
+def sampling_many_to_many(schema):
     with CursorFromConnectionFromPool() as cursor:
         cursor.execute("SET search_path TO current;")
         cursor.execute("SELECT count(*) \
@@ -27,22 +27,27 @@ def sampling_many_to_many():
         if sample_data:
             sample_count = sample_data[0][0]
 
-    for i in range(sample_count):
+    with CursorFromConnectionFromPool() as cursor:
+        cursor.execute("CREATE SCHEMA {};".format(schema))
+        cursor.execute("SET search_path TO {};".format(schema))
+        cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis SCHEMA {};".format(schema))
+        cursor.execute("CREATE EXTENSION IF NOT EXISTS pgrouting SCHEMA {};".format(schema))
+
+    for i in range(1, sample_count):
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SET search_path TO current;")
-            cursor.execute("DROP TABLE IF EXISTS samplepoint_many_to_many_{}".format(i))
+            cursor.execute("DROP TABLE IF EXISTS samplepoint_one_to_many_{}".format(i))
             cursor.execute("SELECT DISTINCT ON (end_vid) *, agg_cost/60 as cost_m, samplepoint_vertice_comparison.geom AS pointgeom \
                             INTO samplepoint_many_to_many_{0} \
                             FROM samplepoint_vertice_comparison, pgr_dijkstra( \
                                 'SELECT pk as id, source, target, costs as cost FROM merged_ways', \
                                  {0}, (select array_agg(id::integer) as array \
                                  FROM samplepoint_vertice_comparison), \
-                                 FALSE) \
+                                 TRUE) \
                             WHERE samplepoint_vertice_comparison.id = end_vid order by end_vid, agg_cost desc;".format(i))
             print(i)
 
 
 
-#sampling_many_to_many()
+#sampling_many_to_many('one_to_many')
 
 sampling_one_to_many()

@@ -124,7 +124,7 @@ class Bus:
                     break
 
                 # If time_const is not used, use time_calc
-                elif self.id[i] == time_id[k] and time_calc[k] > 0:
+                elif self.id[i] == time_id[k] and time_calc[k] is not None:
                     with CursorFromConnectionFromPool() as cursor:
                         cursor.execute("UPDATE merged_ways SET costs = {0}, reverse_costs = {0} \
                                         WHERE pk = {1};".format(time_calc[k], time_id[k]))
@@ -223,6 +223,7 @@ class Bus:
         # Dict for bus line lengths
         bus_line_length = {}
 
+        # Finding the length of all bus lines
         for i in range(len(bus_line_numbers)):
             with CursorFromConnectionFromPool() as cursor:
                 cursor.execute("SELECT spatial_length FROM merged_ways \
@@ -231,10 +232,11 @@ class Bus:
                 bus_data = cursor.fetchall()
                 print(i)
                 if bus_data:
-                    # creating a list to store temporarily lengths
+                    # Creating a list to store temporarily lengths
                     temp_lengths = []
                     for k in range(len(bus_data)):
                         temp_lengths.append(bus_data[k][0])
+                    # Finding the sum of all the links within the bus line
                     length = sum(temp_lengths)
                     bus_line_length[bus_line_numbers[i]] = length
 
@@ -257,12 +259,14 @@ class Bus:
 
         a_bus_avg_velocity /= len(a_bus_time)
 
+        # Calculating average velocity for s-bus lines
         for key in s_bus_time:
             s_bus_velocity[key] = bus_line_length[key] / s_bus_time[key]
             s_bus_avg_velocity = s_bus_avg_velocity + s_bus_velocity[key]
 
         s_bus_avg_velocity /= len(s_bus_time)
 
+        # Calculating average velocity for yellow-bus lines
         for key in y_bus_time:
             y_bus_velocity[key] = bus_line_length[key] / y_bus_time[key]
             y_bus_avg_velocity = y_bus_avg_velocity + y_bus_velocity[key]
@@ -294,26 +298,3 @@ class Bus:
                 bus_time.append(self.spatial_length[i] / y_bus_avg_velocity)
 
         return bus_time
-
-
-
-'''
-
-        for i in range(len(self.spatial_length)):
-            # Iterates through all non-connector bus ways that have a time_const value
-            for k in range(len(time_const)):
-                # If the time const id matches that of the original bus way and time_const has a value
-                # costs are updated according to that. Otherwise it takes the calculated costs
-                if self.id[i] == time_const_id[k] and time_const[k] != 0:
-                    with CursorFromConnectionFromPool() as cursor:
-                        cursor.execute("UPDATE merged_ways SET costs = {} \
-                                        WHERE pk = {};".format(time_const[k], time_const_id[k]))
-                    # If a match has been found break out of the k-loop
-                    break
-                else:
-                    with CursorFromConnectionFromPool() as cursor:
-                        cursor.execute("UPDATE merged_ways SET costs = {} \
-                                        WHERE pk = {};".format(time_calc[i], self.id[i]))
-
-
-'''

@@ -11,17 +11,17 @@ class Train:
         return "<Train>"
 
     def load_length_from_db(self):
-        # Connecting to database
+        # Connecting to database, and loading train spatial lengths and the id belonging to it
         with CursorFromConnectionFromPool() as cursor:
             cursor.execute("SELECT spatial_length, pk FROM merged_ways \
                             WHERE connector = 0 AND transport = 'train'")
             train_data = cursor.fetchall() # Stores the result of the query in the train_data variable
-            self.spatial_length = [] # Makes sure the list is empty
-            self.id = [] # Makes sure the list is empty
+            self.spatial_length = [] # Creates a spatial length list and make sure the list is empty
+            self.id = [] # Creates a id list and make sure the list is empty
             if train_data:  # None is equivalent to false in boolean expressions
                 for i in range(len(train_data)): # Iterating through all of the train data
-                    self.spatial_length.append(train_data[i][0]) # Removing the tuples that comes along with the DB queries
-                    self.id.append(train_data[i][1])  # Removing the tuples that comes along with the DB queries
+                    self.spatial_length.append(train_data[i][0]) # Storing spatial lengths, removing the tuples that comes along with the DB queries
+                    self.id.append(train_data[i][1])  # Storing ids, removing the tuples that comes along with the DB queries
         return None
 
     def calculate_moving_costs(self, acceleration, deceleration, velocity):
@@ -120,7 +120,7 @@ class Train:
                                         WHERE pk = {1};".format(time_const[k], time_id[k]))
                     # If a match has been found break out of the k-loop
                     break
-                elif self.id[i] == time_id[k] and time_calc[k] > 0:
+                elif self.id[i] == time_id[k] and time_calc[k] is not None:
                     with CursorFromConnectionFromPool() as cursor:
                         cursor.execute("UPDATE merged_ways SET costs = {0}, reverse_costs = {0} \
                                         WHERE pk = {1};".format(time_calc[k], time_id[i]))

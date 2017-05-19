@@ -24,7 +24,7 @@ pedestrian = Pedestrian(1.39) # 1.39 m/s = 5 km/h
 
 # Importing shapefiles into the db, only run this the first time or in case of changed shapefiles
 # 0 = current network, 1 = future network
-import_shp_to_db.import_shp_to_db(0)
+import_shp_to_db.import_shp_to_db(1)
 
 # Importing connector costs into a table in postgres, only run the first time or if the connector costs have changed
 import_conn_to_db.import_conn_to_db()

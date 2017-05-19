@@ -120,7 +120,7 @@ class Metro:
                                         WHERE pk = {1};".format(time_const[k], time_id[k]))
                     # If a match has been found break out of the k-loop
                     break
-                elif self.id[i] == time_id[k] and time_calc[k] > 0:
+                elif self.id[i] == time_id[k] and time_calc[k] is not None:
                     with CursorFromConnectionFromPool() as cursor:
                         cursor.execute("UPDATE merged_ways SET costs = {0}, reverse_costs = {0} \
                                         WHERE pk = {1};".format(time_calc[k], time_id[i]))

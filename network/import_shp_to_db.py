@@ -8,6 +8,11 @@ def import_shp_to_db(network):
     # 2: Create a database that has extensions postgis and pgrouting
     # 3: Change database credentials
 
+
+
+
+
+
     # network = 0, current network
     # network = 1, future network
     # Determines which network that should be builded and setting variables and schemas accordingly
@@ -16,9 +21,9 @@ def import_shp_to_db(network):
         with CursorFromConnectionFromPool() as cursor:
             cursor.execute("DROP SCHEMA IF EXISTS current CASCADE;")
             cursor.execute("CREATE SCHEMA current;")
-            cursor.execute("SET search_path TO current;")
-            cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis SCHEMA current;")
-            cursor.execute("CREATE EXTENSION IF NOT EXISTS pgrouting SCHEMA current;")
+            cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis;")
+            cursor.execute("CREATE EXTENSION IF NOT EXISTS pgrouting;")
+            cursor.execute("SET search_path = current, public;")
 
         curfur_fname = 'cur'
     else:
@@ -26,9 +31,10 @@ def import_shp_to_db(network):
         with CursorFromConnectionFromPool() as cursor:
             cursor.execute("DROP SCHEMA IF EXISTS future CASCADE;")
             cursor.execute("CREATE SCHEMA future;")
-            cursor.execute("SET search_path TO future;")
-            cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis SCHEMA future;")
-            cursor.execute("CREATE EXTENSION IF NOT EXISTS pgrouting SCHEMA future;")
+            cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis;")
+            cursor.execute("CREATE EXTENSION IF NOT EXISTS pgrouting;")
+            cursor.execute("SET search_path = future, public;")
+
 
         curfur_fname = 'fur'
 

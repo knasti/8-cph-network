@@ -90,25 +90,29 @@ def import_conn_to_db():
     # rush hour
     metro_frq_rh = {
                 "1": 240,
-                "2": 240
+                "2": 240,
+                "3": 240
         }
 
     # day
     metro_frq_day = {
                 "1": 360,
-                "2": 360
+                "2": 360,
+                "3": 360
         }
 
     # evening
     metro_frq_evening = {
                 "1": 360,
-                "2": 360
+                "2": 360,
+                "3": 360
         }
 
     # night
     metro_frq_night = {
                 "1": 1200,
-                "2": 1200
+                "2": 1200,
+                "3": 1200
         }
 
     # Creating empty list for bus_line_numbers

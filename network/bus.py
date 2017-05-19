@@ -97,42 +97,39 @@ class Bus:
                                 WHERE pk = {};".format(costs[i], self.id[i]))
 
     def update_moving_costs(self):
-        # Storing the calculated moving costs
-        time_calc = self.calculate_moving_costs_2()
-
-        # Stores all the time_const values and the ids belonging to them
+        # Stores all the time_const and time_calc values and the ids belonging to them
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT time_const, pk FROM merged_ways \
+            cursor.execute("SELECT time_const, time_calc, pk FROM merged_ways \
                             WHERE connector = 0 AND transport = 'bus'")
-            bus_time_const_costs = cursor.fetchall()  # Stores the result of the query in the bus_data variable
+            bus_time_costs = cursor.fetchall()  # Stores the result of the query in the bus_data variable
             time_const = [] # Makes sure the list is empty
-            time_const_id = [] # Makes sure the list is empty
-            if bus_time_const_costs:
-                for i in range(len(bus_time_const_costs)): # Iterating through all of the bus data
-                    if bus_time_const_costs[i][0] > 0:  # Making sure there are no "fake" costs appended to the list
-                        time_const.append(bus_time_const_costs[i][0]) # Removing the tuples that comes along with the DB queries
-                        time_const_id.append(bus_time_const_costs[i][1]) # Removing the tuples that comes along with the DB queries
+            time_calc = [] # Makes sure the list is empty
+            time_id = [] # Makes sure the list is empty
+            if bus_time_costs:
+                for i in range(len(bus_time_costs)): # Iterating through all of the bus data
+                    time_const.append(bus_time_costs[i][0]) # Removing the tuples that comes along with the DB queries
+                    time_calc.append(bus_time_costs[i][1])  # Removing the tuples that comes along with the DB queries
+                    time_id.append(bus_time_costs[i][2]) # Removing the tuples that comes along with the DB queries
 
         # Iterates through all non-connector bus ways
         for i in range(len(self.spatial_length)):
-            # q measures whether time_const (q=1) or time_calc (q=0) have been used
-            q = 0
-            for k in range(len(time_const)):
+            for k in range(len(time_id)):
                 # If the time const id matches that of the original bus way and time_const has a value
                 # costs are updated according to that. Otherwise it takes the calculated costs
-                if self.id[i] == time_const_id[k]:
+                if self.id[i] == time_id[k] and time_const[k] > 0:
                     with CursorFromConnectionFromPool() as cursor:
                         cursor.execute("UPDATE merged_ways SET costs = {0}, reverse_costs = {0} \
-                                        WHERE pk = {1};".format(time_const[k], time_const_id[k]))
-                    # updates q
-                    q = 1
+                                        WHERE pk = {1};".format(time_const[k], time_id[k]))
                     # If a match has been found break out of the k-loop
                     break
-            # If time_const is not used, use time_calc
-            if q == 0:
-                with CursorFromConnectionFromPool() as cursor:
-                    cursor.execute("UPDATE merged_ways SET costs = {0}, reverse_costs = {0} \
-                                    WHERE pk = {1};".format(time_calc[i], self.id[i]))
+
+                # If time_const is not used, use time_calc
+                elif self.id[i] == time_id[k] and time_calc[k] > 0:
+                    with CursorFromConnectionFromPool() as cursor:
+                        cursor.execute("UPDATE merged_ways SET costs = {0}, reverse_costs = {0} \
+                                        WHERE pk = {1};".format(time_calc[k], time_id[k]))
+                    # If a match has been found break out of the k-loop
+                    break
 
     # Updating merged_ways table with connector costs
     @staticmethod

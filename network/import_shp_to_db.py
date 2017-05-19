@@ -8,11 +8,6 @@ def import_shp_to_db(network):
     # 2: Create a database that has extensions postgis and pgrouting
     # 3: Change database credentials
 
-
-
-
-
-
     # network = 0, current network
     # network = 1, future network
     # Determines which network that should be builded and setting variables and schemas accordingly
@@ -155,7 +150,7 @@ def import_shp_to_db(network):
 
     # Creating the network topology with pgrouting
     with CursorFromConnectionFromPool() as cursor:
-        cursor.execute("SELECT pgr_createtopology('merged_ways', 0.00001, 'geom', 'pk');")
+        cursor.execute("SELECT pgr_createtopology('merged_ways', 0.0000001, 'geom', 'pk');")
 
     # Status for the user
     print('All tables have been merged into one table, merged_ways, and topology has been created')

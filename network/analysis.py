@@ -1,9 +1,10 @@
 from database import CursorFromConnectionFromPool
 from database import Database
 
+
 def sampling_one_to_many():
     with CursorFromConnectionFromPool() as cursor:
-        cursor.execute("SET search_path TO current;")
+        cursor.execute("SET search_path TO current, public;")
         cursor.execute("DROP TABLE IF EXISTS samplepoint_one_to_many")
         cursor.execute("SELECT DISTINCT ON (end_vid) *, agg_cost/60 as cost_m, samplepoint_vertice_comparison.geom AS pointgeom \
                         INTO samplepoint_one_to_many \
@@ -17,7 +18,7 @@ def sampling_one_to_many():
 
 def sampling_many_to_many(schema):
     with CursorFromConnectionFromPool() as cursor:
-        cursor.execute("SET search_path TO current;")
+        cursor.execute("SET search_path TO current, public;")
         cursor.execute("SELECT count(*) \
                         FROM samplepoint_vertice_comparison;")
         sample_data = cursor.fetchall()
@@ -25,10 +26,11 @@ def sampling_many_to_many(schema):
             sample_count = sample_data[0][0]
 
     with CursorFromConnectionFromPool() as cursor:
-        cursor.execute("CREATE SCHEMA {};".format(schema))
-        cursor.execute("SET search_path TO {};".format(schema))
+        cursor.execute("CREATE SCHEMA IF NOT EXISTS {};".format(schema))
         cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis SCHEMA {};".format(schema))
         cursor.execute("CREATE EXTENSION IF NOT EXISTS pgrouting SCHEMA {};".format(schema))
+        cursor.execute("SET search_path TO {}, public;".format(schema))
+
 
     for i in range(1, sample_count):
         with CursorFromConnectionFromPool() as cursor:
@@ -66,7 +68,7 @@ def complete_comparison():
             for i in range(len(id_data)):
                 cur_id.append(id_data[i][0])
                 fur_id.append(id_data[i][1])
-    '''
+
     for i in range(len(id_data)):
         with CursorFromConnectionFromPool() as cursor:
             cursor.execute("WITH cur as ( \
@@ -79,7 +81,7 @@ def complete_comparison():
                             UPDATE samplepoint_vertice_comparison_curfur SET avg_cur_cost = (SELECT (sum(curcost_m)/3215) from cur) \
                             WHERE current.samplepoint_vertice_comparison_curfur.cur_id = " + str(cur_id[i]))
             print(str(cur_id[i]))
-    '''
+
     for i in range(len(id_data)):
         with CursorFromConnectionFromPool() as cursor:
             cursor.execute("WITH fur as ( \

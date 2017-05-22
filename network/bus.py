@@ -211,9 +211,9 @@ class Bus:
         # Creating an empty list to store bus line numbers in
         bus_line_numbers = []
 
-        # Getting the bus line_numbers
+        # Getting the bus line_numbers, the average velocity will always be calculated from current network
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT DISTINCT line_number FROM merged_ways \
+            cursor.execute("SELECT DISTINCT line_number FROM current.merged_ways \
                             WHERE transport = 'bus'")
             bus_data = cursor.fetchall()
             if bus_data:
@@ -226,7 +226,7 @@ class Bus:
         # Finding the length of all bus lines
         for i in range(len(bus_line_numbers)):
             with CursorFromConnectionFromPool() as cursor:
-                cursor.execute("SELECT spatial_length FROM merged_ways \
+                cursor.execute("SELECT spatial_length FROM current.merged_ways \
                                 WHERE connector = 0 \
                                 AND line_number = '{}';".format(bus_line_numbers[i]))
                 bus_data = cursor.fetchall()

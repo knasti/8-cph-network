@@ -93,7 +93,7 @@ def import_shp_to_db(network):
 
         # Getting the layer from the shapefile
         layer = shapefile.GetLayer()
-
+        print(table_names[k])
         # Looping through all features of the shapefile
         for i in range(layer.GetFeatureCount()):
             feature = layer.GetFeature(i)

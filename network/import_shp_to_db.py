@@ -8,6 +8,11 @@ def import_shp_to_db(network):
     # 2: Create a database that has extensions postgis and pgrouting
     # 3: Change database credentials
 
+    # Schema used for shapefiles calculating lengths for average bus velocity, cf. file: bus
+    with CursorFromConnectionFromPool() as cursor:
+        cursor.execute("DROP SCHEMA IF EXISTS velocity CASCADE;")
+        cursor.execute("CREATE SCHEMA velocity;")
+
     # network = 0, current network
     # network = 1, future network
     # Determines which network that should be builded and setting variables and schemas accordingly
@@ -30,7 +35,6 @@ def import_shp_to_db(network):
             cursor.execute("CREATE EXTENSION IF NOT EXISTS pgrouting;")
             cursor.execute("SET search_path = future, public;")
 
-
         curfur_fname = 'fur'
 
     rootdir = r'C:\Users\Bruger\Dropbox\myUniversity\2. secondSemester\8. Semester\3. Data\public_transport_data'
@@ -39,12 +43,17 @@ def import_shp_to_db(network):
     # Creating an empty list where shapefile-paths can be stored
     src_file = []
 
-    # Creating an empty list for table-names
+    # Creating an empty list for velocity shapefiles
+    vel_src_file = []
+
+    # Creating an empty list for table names
     table_names = []
+
+    # Creating an empty list for velocity table names
+    vel_table_names = []
 
     # Creating an empty list to store transport type
     transport = []
-
 
     # looping through directories and sub directories to find files
     for subdir, dirs, files in os.walk(rootdir):
@@ -73,6 +82,13 @@ def import_shp_to_db(network):
                 else:
                     transport.append('unknown')
 
+            if temp_file.endswith('.shp') and 'vel' in temp_file:
+                # Appending velocity shapefile paths to a list
+                vel_src_file.append(temp_file)
+
+                # Appending velocity filenames to use for table names
+                vel_table_names.append(re.sub('\.shp', '', f))
+
     # Status for the user
     print('Shapefiles and table names stored in lists')
 
@@ -94,6 +110,7 @@ def import_shp_to_db(network):
         # Getting the layer from the shapefile
         layer = shapefile.GetLayer()
         print(table_names[k])
+
         # Looping through all features of the shapefile
         for i in range(layer.GetFeatureCount()):
             feature = layer.GetFeature(i)
@@ -108,7 +125,7 @@ def import_shp_to_db(network):
                                 VALUES (%s, ST_GeometryFromText(%s, 4326), %s, %s, %s);".format(table_names[k]),
                                     [name, wkt, time_const, connector, line_number])
 
-        # Adding transport and line_number to the tables
+        # Adding transport to the tables
         with CursorFromConnectionFromPool() as cursor:
             cursor.execute("UPDATE {} SET transport = '{}';".format(table_names[k], transport[k]))
 
@@ -200,3 +217,64 @@ def import_shp_to_db(network):
                         WHERE sampling_points_on_network.geom && merged_ways_vertices_pgr.the_geom;")
 
     print('Sampling points have been imported to the database')
+
+    # Setting up
+    for k in range(len(vel_src_file)):
+        # Creating a new table in postgres with the necessary columns
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute("SET search_path = velocity, public;")
+            cursor.execute("DROP TABLE IF EXISTS {}".format(vel_table_names[k]))
+            cursor.execute("CREATE TABLE {} ( \
+                                geom GEOMETRY, \
+                                transport VARCHAR, \
+                                line_number VARCHAR, \
+                                spatial_length FLOAT8 \
+                                );".format(vel_table_names[k]))
+        # Opening the shapefile
+        shapefile = ogr.Open(vel_src_file[k])
+
+        # Getting the layer from the shapefile
+        layer = shapefile.GetLayer()
+
+        # Looping through all features of the shapefile
+        for i in range(layer.GetFeatureCount()):
+            feature = layer.GetFeature(i)
+            wkt = feature.GetGeometryRef().ExportToWkt()
+            line_number = feature.GetField("l_number")
+            # Storing the applicable values
+            with CursorFromConnectionFromPool() as cursor:
+                cursor.execute("INSERT INTO {} (geom, line_number) \
+                                VALUES (ST_GeometryFromText(%s, 3044), %s);".format(vel_table_names[k]),
+                                    [wkt, line_number])
+
+        # Adding transport to the tables
+        with CursorFromConnectionFromPool() as cursor:
+            cursor.execute("UPDATE {} SET transport = 'bus';".format(vel_table_names[k]))
+            cursor.execute("UPDATE {} SET spatial_length = ST_Length(geom);".format(vel_table_names[k]))
+
+    print('Velocity shapefiles are now imported as tables along with data from the attribute tables')
+
+    # Creating an empty string for the velocity union_tables
+    union_tables = ''
+
+    # Making union SQL-string for the velocity temporary tables
+    for i in range(len(vel_table_names)):
+        if i < len(vel_table_names) - 1:
+            union_tables = union_tables + " SELECT * FROM {} UNION ALL".format(vel_table_names[i])
+        else:
+            union_tables = union_tables + " SELECT * FROM {}".format(vel_table_names[i])
+
+    # Creating 1 table for all of the velocity tables
+    with CursorFromConnectionFromPool() as cursor:
+        cursor.execute("DROP TABLE IF EXISTS vel_table")
+        cursor.execute("SELECT * INTO vel_table \
+                        FROM (" + union_tables + ")t")
+
+
+    with CursorFromConnectionFromPool() as cursor:
+        if network == 0:
+            cursor.execute("SET search_path = current, public;")
+        else:
+            cursor.execute("SET search_path = future, public;")
+
+    print('The final velocity table has been created')

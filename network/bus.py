@@ -192,14 +192,6 @@ class Bus:
             #        "500S": 100 * 60 # Bad representation of city driving
             }
 
-        # Dict for yellow bus times
-        y_bus_time = {
-                    "10": 53 * 60,
-                    "13": 61 * 60,
-                    "37": 34 * 60,
-                    "185": 31 * 60
-            }
-
         # Dict for e bus times
         y_bus_time = {
                     "10": 53 * 60,
@@ -213,8 +205,7 @@ class Bus:
 
         # Getting the bus line_numbers, the average velocity will always be calculated from current network
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute("SELECT DISTINCT line_number FROM current.merged_ways \
-                            WHERE transport = 'bus'")
+            cursor.execute("SELECT DISTINCT line_number FROM velocity.vel_table")
             bus_data = cursor.fetchall()
             if bus_data:
                 for i in range(len(bus_data)):
@@ -226,9 +217,8 @@ class Bus:
         # Finding the length of all bus lines
         for i in range(len(bus_line_numbers)):
             with CursorFromConnectionFromPool() as cursor:
-                cursor.execute("SELECT spatial_length FROM current.merged_ways \
-                                WHERE connector = 0 \
-                                AND line_number = '{}';".format(bus_line_numbers[i]))
+                cursor.execute("SELECT spatial_length FROM velocity.vel_table \
+                                WHERE line_number = '{}';".format(bus_line_numbers[i]))
                 bus_data = cursor.fetchall()
                 print(i)
                 if bus_data:

@@ -8,7 +8,7 @@ from bus import Bus
 from pedestrian import Pedestrian
 
 # Connecting to the database
-Database.initialise(user='postgres', password='postgres', host='localhost', database='cph_network')
+Database.initialise(user='postgres', password='postgres', host='localhost', database='cph_network1')
 
 start_time = time.time()
 

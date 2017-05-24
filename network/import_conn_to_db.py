@@ -42,7 +42,6 @@ def import_conn_to_db():
 
     # Adding frequency to trains, units in seconds
     # rush hour
-
     train_frq_rh = {
                 "a": 600,
                 "b": 600,

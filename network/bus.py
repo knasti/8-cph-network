@@ -47,16 +47,16 @@ class Bus:
         dec_distance = formulas.dist_acc(deceleration, dec_time)
 
         # Finding the remaining distance left
-        for i in range(len(self.spatial_length)):
-            if self.spatial_length[i] >= (acc_distance + dec_distance):
-                distance = self.spatial_length[i] - acc_distance - dec_distance
+        for item in self.spatial_length:
+            if item >= acc_distance + dec_distance:
+                distance = item - acc_distance - dec_distance
                 # Finding the time that the buss is driving at its average speed
                 drive_time = distance / velocity
                 # Summarizing all the times
                 sum_time.append(acc_time + dec_time + drive_time)
             else:
                 # Iterating to see what the absolute max speed can be reached and still being able to brake
-                sum_time.append(self.__cost_acc_dec_times(acceleration, deceleration, self.spatial_length[i]))
+                sum_time.append(self.__cost_acc_dec_times(acceleration, deceleration, item))
 
         return sum_time
 
@@ -135,9 +135,9 @@ class Bus:
     @staticmethod
     def update_conn_costs(daytime):
         # daytime = 0, rush hour
-        # daytime = 1, day
-        # daytime = 2, evening
-        # daytime = 3, night
+            # daytime = 1, day
+            # daytime = 2, evening
+            # daytime = 3, night
         with CursorFromConnectionFromPool() as cursor:
             if daytime == 0:
                 cursor.execute("UPDATE merged_ways AS mv \
@@ -146,21 +146,21 @@ class Bus:
                                 WHERE mv.line_number = cc.line_number \
                                 AND mv.connector = 1 \
                                 AND mv.transport = 'bus';")
-            if daytime == 1:
+            elif daytime == 1:
                 cursor.execute("UPDATE merged_ways AS mv \
                                 SET reverse_costs = cc.avg_wait_time_day, costs = 0 \
                                 FROM conn_costs AS cc \
                                 WHERE mv.line_number = cc.line_number \
                                 AND mv.connector = 1 \
                                 AND mv.transport = 'bus';")
-            if daytime == 2:
+            elif daytime == 2:
                 cursor.execute("UPDATE merged_ways AS mv \
                                 SET reverse_costs = cc.avg_wait_time_evening, costs = 0 \
                                 FROM conn_costs AS cc \
                                 WHERE mv.line_number = cc.line_number \
                                 AND mv.connector = 1 \
                                 AND mv.transport = 'bus';")
-            if daytime == 3:
+            elif daytime == 3:
                 cursor.execute("UPDATE merged_ways AS mv \
                                 SET reverse_costs = cc.avg_wait_time_night, costs = 0 \
                                 FROM conn_costs AS cc \
@@ -208,8 +208,8 @@ class Bus:
             cursor.execute("SELECT DISTINCT line_number FROM velocity.vel_table")
             bus_data = cursor.fetchall()
             if bus_data:
-                for i in range(len(bus_data)):
-                    bus_line_numbers.append(bus_data[i][0])
+                for bus_datum_ in bus_data:
+                    bus_line_numbers.append(bus_datum_[0])
 
         # Dict for bus line lengths
         bus_line_length = {}
@@ -224,8 +224,8 @@ class Bus:
                 if bus_data:
                     # Creating a list to store temporarily lengths
                     temp_lengths = []
-                    for k in range(len(bus_data)):
-                        temp_lengths.append(bus_data[k][0])
+                    for bus_datum in bus_data:
+                        temp_lengths.append(bus_datum[0])
                     # Finding the sum of all the links within the bus line
                     length = sum(temp_lengths)
                     bus_line_length[bus_line_numbers[i]] = length
@@ -245,21 +245,21 @@ class Bus:
         # Calculating average velocity for a-bus lines
         for key in a_bus_time:
             a_bus_velocity[key] = bus_line_length[key] / a_bus_time[key]
-            a_bus_avg_velocity = a_bus_avg_velocity + a_bus_velocity[key]
+            a_bus_avg_velocity += a_bus_velocity[key]
 
         a_bus_avg_velocity /= len(a_bus_time)
 
         # Calculating average velocity for s-bus lines
         for key in s_bus_time:
             s_bus_velocity[key] = bus_line_length[key] / s_bus_time[key]
-            s_bus_avg_velocity = s_bus_avg_velocity + s_bus_velocity[key]
+            s_bus_avg_velocity += s_bus_velocity[key]
 
         s_bus_avg_velocity /= len(s_bus_time)
 
         # Calculating average velocity for yellow-bus lines
         for key in y_bus_time:
             y_bus_velocity[key] = bus_line_length[key] / y_bus_time[key]
-            y_bus_avg_velocity = y_bus_avg_velocity + y_bus_velocity[key]
+            y_bus_avg_velocity += y_bus_velocity[key]
 
         y_bus_avg_velocity /= len(y_bus_time)
 

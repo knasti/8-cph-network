@@ -65,9 +65,9 @@ def complete_comparison():
         cur_id = []
         fur_id = []
         if id_data:
-            for i in range(len(id_data)):
-                cur_id.append(id_data[i][0])
-                fur_id.append(id_data[i][1])
+            for id_datum in id_data:
+                cur_id.append(id_datum[0])
+                fur_id.append(id_datum[1])
 
     for i in range(len(id_data)):
         with CursorFromConnectionFromPool() as cursor:

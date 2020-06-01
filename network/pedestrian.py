@@ -30,8 +30,8 @@ class Pedestrian:
         times = []
 
         # Finding the time it takes to walk the different lengths
-        for i in range(len(self.spatial_length)):
-            time = self.spatial_length[i] / self.velocity
+        for item in self.spatial_length:
+            time = item / self.velocity
             times.append(time)
 
         return times

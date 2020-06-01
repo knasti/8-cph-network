@@ -138,9 +138,9 @@ def import_shp_to_db(network):
     # Making union SQL-string for the temporary tables
     for i in range(len(table_names)):
         if i < len(table_names) - 1:
-            union_tables = union_tables + " SELECT * FROM {} UNION ALL".format(table_names[i])
+            union_tables += " SELECT * FROM {} UNION ALL".format(table_names[i])
         else:
-            union_tables = union_tables + " SELECT * FROM {}".format(table_names[i])
+            union_tables += " SELECT * FROM {}".format(table_names[i])
 
     # Creating the complete network through unions of the existing tables
     with CursorFromConnectionFromPool() as cursor:
@@ -260,9 +260,9 @@ def import_shp_to_db(network):
     # Making union SQL-string for the velocity temporary tables
     for i in range(len(vel_table_names)):
         if i < len(vel_table_names) - 1:
-            union_tables = union_tables + " SELECT * FROM {} UNION ALL".format(vel_table_names[i])
+            union_tables += " SELECT * FROM {} UNION ALL".format(vel_table_names[i])
         else:
-            union_tables = union_tables + " SELECT * FROM {}".format(vel_table_names[i])
+            union_tables += " SELECT * FROM {}".format(vel_table_names[i])
 
     # Creating 1 table for all of the velocity tables
     with CursorFromConnectionFromPool() as cursor:
